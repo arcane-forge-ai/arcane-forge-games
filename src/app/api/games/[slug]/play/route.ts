@@ -8,49 +8,15 @@ export async function POST(
   try {
     const { slug } = params;
 
-    // Update or create stats
+    // Use atomic increment function to avoid race conditions
     const { data: stats, error } = await supabaseService
-      .from('stats')
-      .upsert({
-        game_slug: slug,
-        plays: 1,
-        likes: 0,
-        dislikes: 0,
-      }, {
-        onConflict: 'game_slug',
-        ignoreDuplicates: false,
+      .rpc('increment_plays', {
+        game_slug_param: slug
       })
-      .select()
       .single();
 
     if (error) {
-      // If upsert fails, try to increment existing record
-      const { data: existingStats, error: fetchError } = await supabaseService
-        .from('stats')
-        .select('plays')
-        .eq('game_slug', slug)
-        .single();
-
-      if (!fetchError && existingStats) {
-        const { data: updatedStats, error: updateError } = await supabaseService
-          .from('stats')
-          .update({ plays: existingStats.plays + 1 })
-          .eq('game_slug', slug)
-          .select()
-          .single();
-
-        if (updateError) {
-          console.error('Failed to update play count:', updateError);
-          return NextResponse.json(
-            { error: 'Failed to record play' },
-            { status: 500 }
-          );
-        }
-
-        return NextResponse.json({ stats: updatedStats });
-      }
-
-      console.error('Failed to record play:', error);
+      console.error('Failed to increment play count:', error);
       return NextResponse.json(
         { error: 'Failed to record play' },
         { status: 500 }
