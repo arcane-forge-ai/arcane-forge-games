@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseService } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { CreateCommentRequest } from '@/types';
 
 export async function GET(
@@ -12,7 +12,7 @@ export async function GET(
     const limit = parseInt(searchParams.get('limit') || '100');
     const offset = parseInt(searchParams.get('offset') || '0');
 
-    const { data: comments, error } = await supabaseService
+    const { data: comments, error } = await supabase
       .from('comments')
       .select('*')
       .eq('game_slug', slug)
@@ -70,7 +70,7 @@ export async function POST(
     }
 
     // Check if the game exists
-    const { data: game, error: gameError } = await supabaseService
+    const { data: game, error: gameError } = await supabase
       .from('games')
       .select('slug')
       .eq('slug', slug)
@@ -85,7 +85,7 @@ export async function POST(
 
     // If parent_id is provided, validate it exists
     if (body.parent_id) {
-      const { data: parentComment, error: parentError } = await supabaseService
+      const { data: parentComment, error: parentError } = await supabase
         .from('comments')
         .select('id')
         .eq('id', body.parent_id)
@@ -101,7 +101,7 @@ export async function POST(
     }
 
     // Insert the comment
-    const { data: comment, error: insertError } = await supabaseService
+    const { data: comment, error: insertError } = await supabase
       .from('comments')
       .insert({
         game_slug: slug,

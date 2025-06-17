@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Stats } from '@/types';
 
 interface StatsBarProps {
@@ -14,6 +15,11 @@ export default function StatsBar({ gameSlug, stats, onStatsUpdate }: StatsBarPro
   const [currentStats, setCurrentStats] = useState(stats);
   const [showFeedbackPrompt, setShowFeedbackPrompt] = useState(false);
   const [lastReaction, setLastReaction] = useState<'like' | 'dislike' | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleReaction = async (type: 'like' | 'dislike') => {
     if (isLoading) return;
@@ -109,9 +115,9 @@ export default function StatsBar({ gameSlug, stats, onStatsUpdate }: StatsBarPro
         </div>
       </div>
 
-      {/* Feedback Prompt Modal */}
-      {showFeedbackPrompt && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      {/* Feedback Prompt Modal - Rendered using Portal */}
+      {showFeedbackPrompt && mounted && createPortal(
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6 relative">
             <button
               onClick={() => setShowFeedbackPrompt(false)}
@@ -158,7 +164,7 @@ export default function StatsBar({ gameSlug, stats, onStatsUpdate }: StatsBarPro
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 mt-6">
               <button
                 onClick={scrollToFeedback}
                 className="btn-primary flex-1"
@@ -171,13 +177,14 @@ export default function StatsBar({ gameSlug, stats, onStatsUpdate }: StatsBarPro
               
               <button
                 onClick={() => setShowFeedbackPrompt(false)}
-                className="btn-secondary"
+                className="btn-secondary px-6 py-3"
               >
                 Maybe Later
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
