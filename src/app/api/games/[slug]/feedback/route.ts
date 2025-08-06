@@ -3,6 +3,52 @@ import { supabaseService } from '@/lib/supabase';
 import { CreateFeedbackRequest } from '@/types';
 import { validateEmail } from '@/lib/utils';
 
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  try {
+    const { slug } = params;
+
+    // Check if the game exists
+    const { data: game, error: gameError } = await supabaseService
+      .from('games')
+      .select('slug')
+      .eq('slug', slug)
+      .single();
+
+    if (gameError || !game) {
+      return NextResponse.json(
+        { error: 'Game not found' },
+        { status: 404 }
+      );
+    }
+
+    // Fetch all feedback for the game
+    const { data: feedbacks, error: feedbackError } = await supabaseService
+      .from('feedback_requests')
+      .select('*')
+      .eq('game_slug', slug)
+      .order('created_at', { ascending: false });
+
+    if (feedbackError) {
+      console.error('Failed to fetch feedbacks:', feedbackError);
+      return NextResponse.json(
+        { error: 'Failed to fetch feedbacks' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ feedbacks: feedbacks || [] });
+  } catch (error) {
+    console.error('Unexpected error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(
   request: NextRequest,
   { params }: { params: { slug: string } }
