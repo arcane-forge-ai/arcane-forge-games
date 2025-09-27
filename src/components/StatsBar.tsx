@@ -21,6 +21,24 @@ export default function StatsBar({ gameSlug, stats, onStatsUpdate }: StatsBarPro
     setMounted(true);
   }, []);
 
+  // Listen for play-recorded events to update plays locally
+  useEffect(() => {
+    const handler = (e: Event) => {
+      try {
+        const detail = (e as CustomEvent<{ gameSlug: string }>).detail;
+        if (detail?.gameSlug === gameSlug) {
+          setCurrentStats(prev => {
+            const next = { ...prev, plays: prev.plays + 1 };
+            onStatsUpdate?.(next);
+            return next;
+          });
+        }
+      } catch {}
+    };
+    window.addEventListener('game:play-recorded', handler as EventListener);
+    return () => window.removeEventListener('game:play-recorded', handler as EventListener);
+  }, [gameSlug, onStatsUpdate]);
+
   const handleReaction = async (type: 'like' | 'dislike') => {
     if (isLoading) return;
     

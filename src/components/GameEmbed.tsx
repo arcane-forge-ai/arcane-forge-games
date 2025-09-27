@@ -11,14 +11,19 @@ interface GameEmbedProps {
 }
 
 export default function GameEmbed({ gameUrl, title, gameSlug, screenshotUrl }: GameEmbedProps) {
-  const handleOpen = useCallback(() => {
+  const handleOpen = useCallback(async () => {
     try {
       window.open(gameUrl, '_blank', 'noopener,noreferrer');
-      // Fire-and-forget play record to keep current UX lightweight
-      fetch(`/api/games/${gameSlug}/play`, { method: 'POST' }).catch(() => {});
-    } catch {
-      // no-op
-    }
+
+      // Record play and emit event so in-page stats can update immediately
+      const res = await fetch(`/api/games/${gameSlug}/play`, { method: 'POST' });
+      if (res.ok) {
+        try {
+          const event = new CustomEvent('game:play-recorded', { detail: { gameSlug } });
+          window.dispatchEvent(event);
+        } catch {}
+      }
+    } catch {}
   }, [gameUrl, gameSlug]);
 
   return (
