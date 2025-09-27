@@ -126,6 +126,7 @@ export default async function GameDetailPage({
                   gameUrl={game.game_url} 
                   title={game.title} 
                   gameSlug={game.slug}
+                  screenshotUrl={game.screenshot_url}
                 />
               </div>
               
