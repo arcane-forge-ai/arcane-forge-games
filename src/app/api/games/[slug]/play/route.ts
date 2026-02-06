@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseService } from '@/lib/supabase';
+import { applyCors, getCorsHeaders } from '@/lib/cors';
 
 export async function POST(
   request: NextRequest,
@@ -17,18 +18,25 @@ export async function POST(
 
     if (error) {
       console.error('Failed to increment play count:', error);
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Failed to record play' },
         { status: 500 }
-      );
+      ), request);
     }
 
-    return NextResponse.json({ stats });
+    return applyCors(NextResponse.json({ stats }), request);
   } catch (error) {
     console.error('Unexpected error:', error);
-    return NextResponse.json(
+    return applyCors(NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
-    );
+    ), request);
   }
-} 
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: getCorsHeaders(request),
+  });
+}

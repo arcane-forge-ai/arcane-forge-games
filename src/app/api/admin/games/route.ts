@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseService } from '@/lib/supabase';
 import { CreateGameRequest } from '@/types';
 import { generateSlug } from '@/lib/utils';
+import { applyCors, getCorsHeaders } from '@/lib/cors';
 
 // Helper function to check admin authentication
 function checkAdminAuth(request: NextRequest): boolean {
@@ -21,10 +22,10 @@ export async function GET(request: NextRequest) {
   try {
     // Check admin authentication
     if (!checkAdminAuth(request)) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
-      );
+      ), request);
     }
 
     // Fetch all games with their stats
@@ -38,19 +39,19 @@ export async function GET(request: NextRequest) {
 
     if (gamesError) {
       console.error('Failed to fetch games:', gamesError);
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Failed to fetch games' },
         { status: 500 }
-      );
+      ), request);
     }
 
-    return NextResponse.json({ games: games || [] });
+    return applyCors(NextResponse.json({ games: games || [] }), request);
   } catch (error) {
     console.error('Unexpected error:', error);
-    return NextResponse.json(
+    return applyCors(NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
-    );
+    ), request);
   }
 }
 
@@ -58,20 +59,20 @@ export async function POST(request: NextRequest) {
   try {
     // Check admin authentication
     if (!checkAdminAuth(request)) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
-      );
+      ), request);
     }
 
     const body: CreateGameRequest = await request.json();
 
     // Validate required fields
     if (!body.title?.trim() || !body.description?.trim() || !body.icon_url?.trim() || !body.screenshot_url?.trim() || !body.game_url?.trim()) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Title, description, icon URL, screenshot URL, and game URL are required' },
         { status: 400 }
-      );
+      ), request);
     }
 
     // Generate slug from title if not provided, or use provided slug
@@ -79,10 +80,10 @@ export async function POST(request: NextRequest) {
 
     // Validate slug
     if (!slug) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Invalid title for slug generation' },
         { status: 400 }
-      );
+      ), request);
     }
 
     // Check if slug already exists
@@ -93,10 +94,10 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (existingGame) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'A game with this slug already exists' },
         { status: 400 }
-      );
+      ), request);
     }
 
     // Insert the game
@@ -115,10 +116,10 @@ export async function POST(request: NextRequest) {
 
     if (insertError) {
       console.error('Failed to insert game:', insertError);
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Failed to create game' },
         { status: 500 }
-      );
+      ), request);
     }
 
     // Create initial stats for the game
@@ -136,12 +137,19 @@ export async function POST(request: NextRequest) {
       // Don't fail the request, just log the error
     }
 
-    return NextResponse.json({ game }, { status: 201 });
+    return applyCors(NextResponse.json({ game }, { status: 201 }), request);
   } catch (error) {
     console.error('Unexpected error:', error);
-    return NextResponse.json(
+    return applyCors(NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
-    );
+    ), request);
   }
-} 
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: getCorsHeaders(request),
+  });
+}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseService } from '@/lib/supabase';
+import { applyCors, getCorsHeaders } from '@/lib/cors';
 
 export async function GET(
   request: NextRequest,
@@ -16,10 +17,10 @@ export async function GET(
       .single();
 
     if (gameError || !game) {
-      return NextResponse.json(
+      return applyCors(NextResponse.json(
         { error: 'Game not found' },
         { status: 404 }
-      );
+      ), request);
     }
 
     // Fetch or create stats
@@ -44,21 +45,28 @@ export async function GET(
 
       if (createError) {
         console.error('Failed to create stats:', createError);
-        return NextResponse.json(
+        return applyCors(NextResponse.json(
           { error: 'Failed to fetch game stats' },
           { status: 500 }
-        );
+        ), request);
       }
 
       stats = newStats;
     }
 
-    return NextResponse.json({ game, stats });
+    return applyCors(NextResponse.json({ game, stats }), request);
   } catch (error) {
     console.error('Unexpected error:', error);
-    return NextResponse.json(
+    return applyCors(NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
-    );
+    ), request);
   }
-} 
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: getCorsHeaders(request),
+  });
+}
