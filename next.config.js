@@ -18,6 +18,10 @@ const nextConfig = {
         source: '/games',
         destination: '/games',
       },
+      {
+        source: '/game-library/:slug',
+        destination: '/game-library/:slug/index.html',
+      },
     ];
   },
 };
