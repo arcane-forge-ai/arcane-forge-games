@@ -68,9 +68,9 @@ export async function POST(request: NextRequest) {
     const body: CreateGameRequest = await request.json();
 
     // Validate required fields
-    if (!body.title?.trim() || !body.description?.trim() || !body.icon_url?.trim() || !body.screenshot_url?.trim() || !body.game_url?.trim()) {
+    if (!body.title?.trim() || !body.description?.trim() || !body.game_url?.trim()) {
       return applyCors(NextResponse.json(
-        { error: 'Title, description, icon URL, screenshot URL, and game URL are required' },
+        { error: 'Title, description, and game URL are required' },
         { status: 400 }
       ), request);
     }
@@ -107,8 +107,8 @@ export async function POST(request: NextRequest) {
         slug,
         title: body.title.trim(),
         description: body.description.trim(),
-        icon_url: body.icon_url.trim(),
-        screenshot_url: body.screenshot_url.trim(),
+        icon_url: body.icon_url?.trim() || '/logo.png',
+        screenshot_url: body.screenshot_url?.trim() || '/placeholder-screenshot.png',
         game_url: body.game_url.trim(),
       })
       .select()

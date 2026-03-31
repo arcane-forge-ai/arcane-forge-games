@@ -63,7 +63,15 @@ export interface CreateGameRequest {
   slug?: string;
   title: string;
   description: string;
-  icon_url: string;
-  screenshot_url: string;
+  icon_url?: string;
+  screenshot_url?: string;
   game_url: string;
+}
+
+export interface UpdateGameRequest {
+  title?: string;
+  description?: string;
+  icon_url?: string;
+  screenshot_url?: string;
+  game_url?: string;
 } 

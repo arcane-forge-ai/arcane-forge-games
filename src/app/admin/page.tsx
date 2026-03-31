@@ -71,8 +71,8 @@ export default function AdminPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.title.trim() || !formData.description.trim() || !formData.icon_url.trim() || !formData.screenshot_url.trim() || !formData.game_url.trim()) {
-      setError('All fields are required');
+    if (!formData.title.trim() || !formData.description.trim() || !formData.game_url.trim()) {
+      setError('Title, description, and game URL are required');
       return;
     }
 
