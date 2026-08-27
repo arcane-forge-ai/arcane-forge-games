@@ -1,0 +1,109 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Arcane Forge Games":
+    - /url: "#top"
+  - navigation "Crazy Chess page navigation":
+    - link "The Game":
+      - /url: "#game"
+    - link "Campaigns":
+      - /url: "#campaigns"
+    - link "Join the Playtest":
+      - /url: "#playtest"
+- main:
+  - region "Every piece comes alive.":
+    - paragraph: Working title · playable prototype
+    - paragraph: Project Crazy Chess
+    - heading "Every piece comes alive." [level=1]
+    - paragraph: They choose sides. They have faces, loyalties, and stories. Every match writes their history.
+    - link "Join the Playtest":
+      - /url: "#playtest"
+    - link "See the Game":
+      - /url: "#game"
+    - figure "Captured from the current playable prototype": Your browser does not support embedded gameplay video. Captured from the current playable prototype
+  - region "Familiar chess becomes a lasting world.":
+    - paragraph: What is Crazy Chess?
+    - heading "Familiar chess becomes a lasting world." [level=2]
+    - article:
+      - text: 01 / Board
+      - heading "The board changes." [level=3]
+      - paragraph: Offers, shifting loyalty, new allies, and battlefield events transform each match.
+    - article:
+      - text: 02 / People
+      - heading "Pieces become people." [level=3]
+      - paragraph: Countries, identities, abilities, and relationships make every army a cast.
+    - article:
+      - text: 03 / History
+      - heading "Every move becomes history." [level=3]
+      - paragraph: Campaigns remember critical moves, recruited allies, survivors, and victories.
+  - region "Win enemy pieces over—and turn them into allies.":
+    - paragraph: The core hook
+    - heading "Win enemy pieces over—and turn them into allies." [level=2]
+    - paragraph: Win over the enemy queen, bring her to your side, and turn the match around.
+    - list:
+      - listitem: 01 Make an offer to an enemy piece.
+      - listitem: 02 Loyalty determines whether it accepts.
+      - listitem: 03 Redeploy your new ally and reshape the board.
+    - figure "Offer → loyalty check → recruit → redeploy": Your browser does not support embedded gameplay video. Offer → loyalty check → recruit → redeploy
+  - region "Recruitment changes the army. Battlefields change the plan.":
+    - paragraph: Dynamic battlefields
+    - heading "Recruitment changes the army. Battlefields change the plan." [level=2]
+    - figure "Treasure Claim the reward.":
+      - text: Your browser does not support embedded gameplay video.
+      - strong: Treasure
+      - text: Claim the reward.
+    - figure "Traps Read the danger.":
+      - text: Your browser does not support embedded gameplay video.
+      - strong: Traps
+      - text: Read the danger.
+    - figure "Mystery Tiles Reveal the unknown.":
+      - text: Your browser does not support embedded gameplay video.
+      - strong: Mystery Tiles
+      - text: Reveal the unknown.
+    - figure "Shrines Transform the army.":
+      - text: Your browser does not support embedded gameplay video.
+      - strong: Shrines
+      - text: Transform the army.
+  - region "Every match writes the next mission.":
+    - paragraph: Living Campaign
+    - heading "Every match writes the next mission." [level=2]
+    - paragraph: Each result becomes part of a personal chronicle and changes what the campaign creates next.
+    - figure "01 The campaign creates a briefing": Your browser does not support embedded gameplay video. 01 The campaign creates a briefing
+    - figure "02 Moves, sacrifices, and survivors become canon": Your browser does not support embedded gameplay video. 02 Moves, sacrifices, and survivors become canon
+    - figure "03 The Chronicle remembers—and continues": Your browser does not support embedded gameplay video. 03 The Chronicle remembers—and continues
+  - region "One survivor. A new way to know each country.":
+    - figure "Last Piece · The First Encirclement": Your browser does not support embedded gameplay video. Last Piece · The First Encirclement
+    - paragraph: Last Piece
+    - heading "One survivor. A new way to know each country." [level=2]
+    - paragraph: Survive with one piece, build familiarity, and unlock more of its portraits, stories, and character world.
+  - region "Join the Crazy Chess playtest.":
+    - paragraph: Help shape what comes next
+    - heading "Join the Crazy Chess playtest." [level=2]
+    - paragraph: Familiar rules. An army you can know, recruit, protect, and remember.
+    - text: Name
+    - emphasis: optional
+    - textbox "Name optional": Playtest Reviewer
+    - text: Email
+    - textbox "Email"
+    - text: Preferred platform
+    - combobox "Preferred platform":
+      - option "Choose a platform" [disabled] [selected]
+      - option "Windows"
+      - option "macOS"
+      - option "Android"
+      - option "iOS"
+    - checkbox "I agree that Arcane Forge may email me about Crazy Chess playtesting. I can ask to be removed at any time."
+    - text: I agree that Arcane Forge may email me about Crazy Chess playtesting. I can ask to be removed at any time.
+    - button "Join the Playtest"
+- contentinfo:
+  - paragraph:
+    - strong: Crazy Chess
+    - text: is a working title from Arcane Forge AI.
+  - paragraph:
+    - text: Stockfish-powered AI components are distributed under GPLv3.
+    - link "Notices and corresponding source":
+      - /url: /open-source/crazy-chess/android-0.9.0-1/
+    - text: .
+- alert
+```

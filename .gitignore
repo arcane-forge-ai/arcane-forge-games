@@ -25,5 +25,6 @@ Thumbs.db
 /build
 /dist
 
-# supabase
-supabase
+# Supabase local state (migrations and config stay tracked)
+supabase/.temp/
+supabase/.branches/

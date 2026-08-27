@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stockfish 18 Provenance</title>
+  <style>
+    :root{color-scheme:dark}body{margin:0;background:#090d11;color:#e8edf1;font:16px/1.6 system-ui,sans-serif}main{max-width:860px;margin:42px auto;padding:28px;background:#111922;border:1px solid #2b3b47}h1,h2{color:#e1bd6a}code{color:#91e1c1;background:#070a0d;padding:2px 5px;overflow-wrap:anywhere}a{color:#87d1ff}li{margin:7px 0}.callout{border-left:4px solid #5fc29a;background:#0b1417;padding:12px 16px}</style>
+</head>
+<body>
+<main>
+  <h1>Stockfish 18 Provenance</h1>
+  <p class="callout">Crazy Chess uses official unmodified desktop engines as separate UCI processes. The executables are not stored in ordinary Git history; the platform preparation scripts download them and verify pinned archive and executable checksums.</p>
+  <h2>Pinned Release</h2>
+  <ul>
+    <li>Version/tag: <code>18 / sf_18</code></li>
+    <li>Commit: <code>cb3d4ee</code></li>
+    <li>Official asset: <code>stockfish-macos-m1-apple-silicon.tar</code></li>
+    <li><a href="https://github.com/official-stockfish/Stockfish/releases/tag/sf_18">Release page</a></li>
+    <li><a href="https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_18.tar.gz">Exact source archive</a></li>
+    <li>Archive SHA-256: <code>4d77c4aa3ad9bd1ea8111f2ac5a4620fe7ebf998d6893bf828d49ccd579c8cb0</code></li>
+    <li>Installed executable SHA-256: <code>bc0cac905ecdf2147fe22055c733bcd999b1e3f7c399fbaf7fb9055786563590</code></li>
+    <li>Architecture: <code>arm64</code></li>
+  </ul>
+  <h2>Windows Portable Build</h2>
+  <ul>
+    <li>Official asset: <code>stockfish-windows-x86-64.zip</code></li>
+    <li>Archive SHA-256: <code>40cc975817e7eee270b03f354810d20956df565420d320f6dd37d454dc81a139</code></li>
+    <li>Installed executable SHA-256: <code>9bde420202717ce083412027fbfb8c5c935b537591d712be8a8a8bae92f6e8d6</code></li>
+    <li>Architecture: <code>x86-64</code> universal</li>
+    <li>Portable layout: <code>stockfish.exe</code> beside <code>CrazyChess.exe</code></li>
+  </ul>
+  <p><code>utils/prepare_stockfish_windows.py</code> extracts the exact executable from the verified official archive without modification.</p>
+  <h2>Runtime Boundary</h2>
+  <p>The fetch script copies the official binary without modification. The engine is not linked into Flutter: Crazy Chess launches it and exchanges UCI text through standard input and output. The official GPL v3 license is included as <code>COPYING.txt</code>.</p>
+  <h2>Browser Distribution</h2>
+  <p class="callout">Browser AI Duel uses the pinned Stockfish.js 18 Lite single-thread build in one local Web Worker.</p>
+  <ul>
+    <li>Package/tag: <code>stockfish@18.0.0 / v18.0.0</code></li>
+    <li>Stockfish.js commit: <code>31a9875</code></li>
+    <li>Upstream Stockfish: <code>sf_18 / cb3d4ee</code></li>
+    <li>Worker SHA-256: <code>2278005057f381491f1c9bb3e44c9f5920b3a00bef9759e33cc6582769a1f1fe</code></li>
+    <li>WASM SHA-256: <code>a8fbc05ec6920b56d7485826dcb02c5ffd2826bcbf751cf973046f237a9096f1</code></li>
+    <li><a href="https://github.com/nmrugg/stockfish.js/tree/v18.0.0">Exact Stockfish.js source</a></li>
+    <li><a href="https://www.npmjs.com/package/stockfish/v/18.0.0">Published package</a></li>
+  </ul>
+  <p>The worker remains separate from Flutter-generated JavaScript and communicates by text UCI messages through <code>postMessage</code>. The browser artifacts include the same GPL v3 license plus an exact <code>SOURCE.txt</code> pointer.</p>
+  <h2>iOS And Android Mobile Distribution</h2>
+  <p class="callout">Mobile AI Duel compiles Stockfish 18 into the app as an in-process FFI engine. The Android license page and immutable corresponding-source snapshot are included for the distributed build.</p>
+  <ul>
+    <li>Wrapper: <a href="https://github.com/ArjanAswal/Stockfish/tree/1.8.1"><code>stockfish 1.8.1</code></a></li>
+    <li>Published archive SHA-256: <code>b27956fa6c21f8637db62411c564d1ba1d0b0e9e27ee928f42a85367da891fa0</code></li>
+    <li>Vendored version/path: <code>1.8.1+crazychess.1 / mobile_flutter</code></li>
+    <li>App identifier: <code>ai.arcaneforge.crazy_chess</code></li>
+    <li>Android Play ABIs: <code>arm64-v8a, armeabi-v7a</code> (<code>x86_64</code> excluded from production)</li>
+    <li>Source snapshot: <code>android-0.9.0-1</code></li>
+    <li><a href="https://games.arcaneforge.ai/open-source/crazy-chess/android-0.9.0-1/">Corresponding source snapshot and download</a></li>
+    <li>Main NNUE SHA-256: <code>c288c895ea924429ea9092e3f36b2b3c1f00f2a3a4c759ff7e57e79e3b43e4a7</code></li>
+    <li>Small NNUE SHA-256: <code>37f18f62d772f3107e1d6aaca3898c130c3c86f2ab63e6555fbbca20635a899d</code></li>
+  </ul>
+  <p>The reviewable wrapper fork removes build-time downloads, requires locally prepared NNUE files, updates the Android namespace/toolchain, and makes initialization and disposal observable. <code>scripts/fetch_stockfish_mobile_nnue.sh</code> prepares and verifies the ignored network files. The versioned page provides an immutable source archive and SHA-256 checksum for Android 0.9.0+1 without requiring access to the private development repository.</p>
+  <h2>Rebuilding Android 0.9.0+1</h2>
+  <p>The release toolchain is Flutter 3.38.5 / Dart 3.10.4, JDK 17, Android Gradle Plugin 8.11.1, Gradle 8.14, Android compile/target SDK 36, minimum SDK 24, and NDK 28.2.13676358.</p>
+  <ol>
+    <li>Install Flutter and Android SDK 36 with NDK 28.2.13676358.</li>
+    <li>Copy <code>android/key.properties.example</code> to the ignored <code>android/key.properties</code> and configure your own signing keystore. Never commit either secret file.</li>
+    <li>Run <code>./scripts/fetch_stockfish_mobile_nnue.sh</code> to download and verify the pinned NNUE files.</li>
+    <li>Run <code>make build-play-android</code>.</li>
+    <li>Optionally run <code>make verify-play-android</code> with <code>bundletool</code> available.</li>
+  </ol>
+  <p>The resulting <code>build/app/outputs/bundle/release/app-release.aab</code> contains only <code>arm64-v8a</code> and <code>armeabi-v7a</code> Stockfish libraries.</p>
+</main>
+</body>
+</html>

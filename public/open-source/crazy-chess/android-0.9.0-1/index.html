@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crazy Chess Android 0.9.0+1 Stockfish 18 notices and corresponding source.">
+  <title>Crazy Chess Android 0.9.0+1 — Open Source</title>
+  <style>
+    :root { color-scheme: dark; --bg: #070a0e; --panel: #101821; --line: #2b3a47; --ink: #edf3f7; --muted: #aebbc6; --gold: #e5bd66; --blue: #8bd3ff; --green: #74d9ae; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(circle at top, #172533 0, var(--bg) 46rem); color: var(--ink); font: 16px/1.62 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(940px, calc(100% - 32px)); margin: 44px auto; }
+    header, section { background: color-mix(in srgb, var(--panel) 94%, transparent); border: 1px solid var(--line); border-radius: 14px; padding: clamp(22px, 4vw, 38px); margin: 18px 0; box-shadow: 0 18px 70px #0008; }
+    h1, h2 { color: var(--gold); line-height: 1.16; }
+    h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3.6rem); }
+    h2 { margin-top: 0; }
+    p, li { color: var(--muted); }
+    strong { color: var(--ink); }
+    a { color: var(--blue); }
+    code { color: var(--green); background: #070c11; border: 1px solid #22303a; border-radius: 5px; padding: 2px 6px; overflow-wrap: anywhere; }
+    .eyebrow { color: var(--green); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .download { display: inline-block; margin: 12px 0 4px; padding: 13px 18px; background: var(--gold); color: #161006; border-radius: 8px; font-weight: 800; text-decoration: none; }
+    .hash { overflow-wrap: anywhere; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card { padding: 16px; border: 1px solid var(--line); border-radius: 9px; background: #0a1118; }
+    .card p { margin: 5px 0; }
+    ol, ul { padding-left: 22px; }
+    footer { padding: 18px 4px 42px; color: #8494a1; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Open-source notice and source offer</div>
+    <h1>Crazy Chess Android 0.9.0+1</h1>
+    <p>This versioned package provides the machine-readable corresponding source for the Stockfish 18 engine distributed in Crazy Chess for Android without requiring access to the private development repository.</p>
+    <a class="download" href="crazy-chess-android-0.9.0-1-corresponding-source.tar.gz" download>Download corresponding source (.tar.gz)</a>
+    <p class="hash"><strong>SHA-256</strong><br><code>0a258ba7e511cc05755ddf46feb7f384b635574e8fb145037c4b5e7b3dbe250c</code></p>
+  </header>
+
+  <section>
+    <h2>Release identity</h2>
+    <div class="grid">
+      <div class="card"><p><strong>App version</strong></p><p><code>0.9.0+1</code></p></div>
+      <div class="card"><p><strong>Application ID</strong></p><p><code>ai.arcaneforge.crazy_chess</code></p></div>
+      <div class="card"><p><strong>Source release</strong></p><p><code>android-0.9.0-1</code></p></div>
+      <div class="card"><p><strong>Internal source tag</strong></p><p><code>android-0.9.0-1-source</code></p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Stockfish and license</h2>
+    <p>Crazy Chess Android uses <strong>Stockfish 18</strong> as an in-process native FFI chess engine. Stockfish is free software licensed under the <strong>GNU General Public License version 3</strong> and is provided without warranty.</p>
+    <ul>
+      <li>Upstream tag and commit: <code>sf_18</code> / <code>cb3d4ee</code></li>
+      <li>Vendored wrapper: <code>stockfish 1.8.1+crazychess.1</code></li>
+      <li>Android ABIs: <code>arm64-v8a</code>, <code>armeabi-v7a</code></li>
+      <li><a href="COPYING.txt">Read the complete GPLv3 license text</a></li>
+      <li><a href="https://github.com/official-stockfish/Stockfish/releases/tag/sf_18">Official Stockfish 18 release</a></li>
+      <li><a href="https://github.com/ArjanAswal/Stockfish/tree/1.8.1">Upstream Flutter wrapper 1.8.1</a></li>
+    </ul>
+    <p>The Crazy Chess wrapper removes build-time downloads, requires prepared and hash-verified NNUE files, updates Android namespace/toolchain configuration, and exposes reliable asynchronous engine initialization and disposal. The archive contains the full vendored wrapper and Stockfish source, native build files, Dart integration source, license text, metadata, and reproducible preparation scripts.</p>
+  </section>
+
+  <section>
+    <h2>NNUE evaluation networks</h2>
+    <p>The Stockfish NNUE networks retain their upstream Stockfish attribution and CC0 dedication. The preparation script downloads and verifies the exact files used by the Android build:</p>
+    <ul>
+      <li><code>nn-c288c895ea92.nnue</code><br><code>c288c895ea924429ea9092e3f36b2b3c1f00f2a3a4c759ff7e57e79e3b43e4a7</code></li>
+      <li><code>nn-37f18f62d772.nnue</code><br><code>37f18f62d772f3107e1d6aaca3898c130c3c86f2ab63e6555fbbca20635a899d</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Build information</h2>
+    <p>The release toolchain is Flutter 3.38.5 / Dart 3.10.4, JDK 17, Android Gradle Plugin 8.11.1, Gradle 8.14, Android compile/target SDK 36, minimum SDK 24, and NDK 28.2.13676358.</p>
+    <ol>
+      <li>Install Flutter, JDK 17, Android SDK 36, and NDK 28.2.13676358.</li>
+      <li>Unpack the source archive.</li>
+      <li>Run <code>./scripts/fetch_stockfish_mobile_nnue.sh</code> to download and verify the two pinned NNUE networks.</li>
+      <li>Configure your own ignored <code>android/key.properties</code> and upload keystore.</li>
+      <li>Run <code>make build-play-android</code>.</li>
+    </ol>
+    <p>Additional provenance is available in <a href="SOURCE.md">SOURCE.md</a>, <a href="SOURCE.html">SOURCE.html</a>, and <a href="manifest.json">manifest.json</a>.</p>
+  </section>
+
+  <footer>Arcane Forge AI, Inc. · Crazy Chess open-source compliance archive</footer>
+</main>
+</body>
+</html>

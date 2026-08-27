@@ -1,0 +1,106 @@
+{
+  "name": "Stockfish",
+  "version": "18",
+  "tag": "sf_18",
+  "commit": "cb3d4ee",
+  "license": "GPL-3.0-only",
+  "modified": false,
+  "platforms": [
+    "macos-arm64",
+    "windows-x64",
+    "web-wasm-single-thread",
+    "ios-arm64",
+    "ios-simulator-arm64-x86_64",
+    "android-arm64-v8a",
+    "android-armeabi-v7a"
+  ],
+  "archive": {
+    "name": "stockfish-macos-m1-apple-silicon.tar",
+    "url": "https://github.com/official-stockfish/Stockfish/releases/download/sf_18/stockfish-macos-m1-apple-silicon.tar",
+    "sha256": "4d77c4aa3ad9bd1ea8111f2ac5a4620fe7ebf998d6893bf828d49ccd579c8cb0"
+  },
+  "executable": {
+    "path": "macos-arm64/stockfish",
+    "sha256": "bc0cac905ecdf2147fe22055c733bcd999b1e3f7c399fbaf7fb9055786563590",
+    "format": "Mach-O 64-bit executable arm64"
+  },
+  "windows": {
+    "archive": {
+      "name": "stockfish-windows-x86-64.zip",
+      "url": "https://github.com/official-stockfish/Stockfish/releases/download/sf_18/stockfish-windows-x86-64.zip",
+      "sha256": "40cc975817e7eee270b03f354810d20956df565420d320f6dd37d454dc81a139"
+    },
+    "executable": {
+      "archivePath": "stockfish/stockfish-windows-x86-64.exe",
+      "path": "windows-x64/stockfish.exe",
+      "sha256": "9bde420202717ce083412027fbfb8c5c935b537591d712be8a8a8bae92f6e8d6",
+      "format": "PE32+ executable x86-64"
+    }
+  },
+  "web": {
+    "project": "Stockfish.js",
+    "version": "18",
+    "tag": "v18.0.0",
+    "commit": "31a9875",
+    "release": "https://github.com/nmrugg/stockfish.js/releases/tag/v18.0.0",
+    "source": "https://github.com/nmrugg/stockfish.js/archive/refs/tags/v18.0.0.tar.gz",
+    "runtime": [
+      {
+        "path": "../../web/stockfish/stockfish-18-lite-single.js",
+        "sha256": "2278005057f381491f1c9bb3e44c9f5920b3a00bef9759e33cc6582769a1f1fe"
+      },
+      {
+        "path": "../../web/stockfish/stockfish-18-lite-single.wasm",
+        "sha256": "a8fbc05ec6920b56d7485826dcb02c5ffd2826bcbf751cf973046f237a9096f1"
+      }
+    ]
+  },
+  "mobile": {
+    "distribution": "android-play-source-snapshot",
+    "correspondingSource": {
+      "releaseIdentifier": "android-0.9.0-1",
+      "url": "https://games.arcaneforge.ai/open-source/crazy-chess/android-0.9.0-1/",
+      "archiveUrl": "https://games.arcaneforge.ai/open-source/crazy-chess/android-0.9.0-1/crazy-chess-android-0.9.0-1-corresponding-source.tar.gz",
+      "archiveSha256": "0a258ba7e511cc05755ddf46feb7f384b635574e8fb145037c4b5e7b3dbe250c",
+      "repositoryVisibility": "private"
+    },
+    "runtime": "in-process FFI UCI engine",
+    "wrapper": {
+      "package": "stockfish",
+      "upstreamVersion": "1.8.1",
+      "localVersion": "1.8.1+crazychess.1",
+      "source": "https://github.com/ArjanAswal/Stockfish/tree/1.8.1",
+      "archive": "https://pub.dev/api/archives/stockfish-1.8.1.tar.gz",
+      "archiveSha256": "b27956fa6c21f8637db62411c564d1ba1d0b0e9e27ee928f42a85367da891fa0",
+      "localPath": "mobile_flutter",
+      "modified": true,
+      "modifications": [
+        "remove build-time network downloads",
+        "require locally prepared NNUE files",
+        "set current Android namespace and toolchain values",
+        "make asynchronous initialization and disposal observable"
+      ]
+    },
+    "engine": {
+      "version": "18",
+      "tag": "sf_18",
+      "source": "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_18.tar.gz",
+      "modified": false
+    },
+    "networks": [
+      {
+        "name": "nn-c288c895ea92.nnue",
+        "url": "https://tests.stockfishchess.org/api/nn/nn-c288c895ea92.nnue",
+        "sha256": "c288c895ea924429ea9092e3f36b2b3c1f00f2a3a4c759ff7e57e79e3b43e4a7",
+        "bytes": 108919594
+      },
+      {
+        "name": "nn-37f18f62d772.nnue",
+        "url": "https://tests.stockfishchess.org/api/nn/nn-37f18f62d772.nnue",
+        "sha256": "37f18f62d772f3107e1d6aaca3898c130c3c86f2ab63e6555fbbca20635a899d",
+        "bytes": 3519630
+      }
+    ]
+  },
+  "source": "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_18.tar.gz"
+}
