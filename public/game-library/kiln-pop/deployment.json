@@ -1,0 +1,18 @@
+{
+  "game": "Kiln Pop",
+  "slug": "kiln-pop",
+  "release": "tiktok-minis-wave-01",
+  "packaged_at": "20261021-015433",
+  "engine": "Unity 6000.4.11f1 WebGL",
+  "native_tiktok_status": "not_validated",
+  "audio": "silent",
+  "sha256": {
+    "Build/webgl.data": "339e162780959241f208d8bb6ca1c2976fd65d5611de26f931c86eb8134b66b7",
+    "Build/webgl.framework.js": "df66bcf187b82aa335f67dcca1913d31dd9b4c541c0d27be3deace212e1ace86",
+    "Build/webgl.loader.js": "ac7d75fea541a41adafc8d243e14760fd2e1454180a4ca8d07f4203fb489184e",
+    "Build/webgl.wasm": "0d2918efb51e457f299937cd5e538b611ed0234a66071223ac1b64ef7e807820",
+    "icon.svg": "0c61d75f0b47d61bc0e6e5357a16d3f819fe264f3bf3c69407067c4903dd7a67",
+    "index.html": "a5d7e2e99fc9cab2edd346038ae51b2f6d96af931900482824929b7821474227",
+    "screenshot.png": "dc43ae6be7c5e73c4756832776e358cd9745179bdb0f27bc06de418d94e2b4fb"
+  }
+}

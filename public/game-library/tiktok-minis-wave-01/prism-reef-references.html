@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src https: http: file:; media-src https: http: file:"><title>Prism Reef — design references</title><style>
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#0b1020;color:#e8edff}
+body{margin:0;line-height:1.65}main{max-width:1000px;margin:32px auto;padding:32px;background:#131c30;border:1px solid #2b3954;border-radius:16px}
+h1,h2,h3{line-height:1.25}h2{margin-top:2em;border-top:1px solid #2b3954;padding-top:1em}a{color:#94c7ff}
+pre{overflow:auto;padding:16px;background:#090e1b;border-radius:8px}code{background:#090e1b;color:#bbd6f8;padding:.1em .3em}
+table{display:block;overflow:auto;border-collapse:collapse}th,td{border:1px solid #354561;padding:10px;text-align:left}th{background:#1b2b44}
+img,video{max-width:100%}blockquote{border-left:3px solid #70aaf0;margin-left:0;padding-left:18px;color:#bdcce4}
+@media(max-width:700px){main{margin:0;padding:20px;border-radius:0}}
+</style></head><body><main><pre style="white-space:pre-wrap"># Prism Reef — design references
+
+Published documentation by Arcane Forge. Updated: 2026-10-21, Asia/Shanghai.
+
+Aim a shell mirror to catch falling sparks. Charging narrows your defense but lets the return chain through matching coral—and heal the lantern.
+
+## REFLECTOR
+
+ABA Games / Kenta Cho.
+
+[Original primary source](https://github.com/abagames/crisp-game-lib-games/blob/cfb39d2f988feb5918eb83697145b5a35adabf58/docs/reflector/main.js)
+
+Borrowed mechanism: Holding strengthens a reflection while shrinking the interception span.
+
+![REFLECTOR research capture](media/prism-reef-reference-1.png)
+
+## COLOR ROLL
+
+ABA Games / Kenta Cho.
+
+[Original primary source](https://github.com/abagames/crisp-game-lib-games/blob/cfb39d2f988feb5918eb83697145b5a35adabf58/docs/colorroll/main.js)
+
+Borrowed mechanism: The first struck color keys a beam; matching rows chain, mismatches stop it.
+
+![COLOR ROLL research capture](media/prism-reef-reference-2.png)
+
+## What changed
+
+| Reference operation | New game operation |
+| --- | --- |
+| Moving reflector / stronger blast | Fixed lantern; directly aimed charge capacity |
+| Separate color-shot puzzle | The caught spark becomes the keyed coral ray |
+| Short-chain penalty | Two-row chains restore a missing pearl |
+
+These works are design references. Reference captures illustrate the compared mechanics; no reference game code, sprites or audio are included in the playable build. The Unity implementation and operational game art are original. Source-code licenses are not a claim of permission to reuse unrelated assets.
+
+[Back to the visual pitch](prism-reef.html) · [All five pitches](index.html)
+</pre></main></body></html>

@@ -1,0 +1,18 @@
+{
+  "game": "Moonlit Harvest",
+  "slug": "moonlit-harvest",
+  "release": "tiktok-minis-wave-01",
+  "packaged_at": "20261021-015433",
+  "engine": "Unity 6000.4.11f1 WebGL",
+  "native_tiktok_status": "not_validated",
+  "audio": "silent",
+  "sha256": {
+    "Build/WebGL.data": "24fea69d1cad568eb01a976729fa6de2e7ebd0814ea8b923cdc44f6ba84aad70",
+    "Build/WebGL.framework.js": "e75f6137daa39a877d6c123cadcb258b7921c758c963ff03e955905248f2072c",
+    "Build/WebGL.loader.js": "9eff6a3560e67c41ddf9911b43f0b102c3d69c4f66f6bb1c2517bf0056649ae0",
+    "Build/WebGL.wasm": "56a0b2d841b7a9630f35c8c4e2cac386acc2206526c8e5450950dabf766110f6",
+    "icon.svg": "15d4f2db59e158c435c8da0a96715bba668ad9f4790e77c774fd6e51732ccd82",
+    "index.html": "ffb17d50c9c3abf26dcf01bc210d8f39396c52a84cef97dd0e874ebbaef764d0",
+    "screenshot.png": "450d26b4a354c4f05a3ffbcf0fcf212a7d929671acd5b8174fc54ebdc5f57827"
+  }
+}

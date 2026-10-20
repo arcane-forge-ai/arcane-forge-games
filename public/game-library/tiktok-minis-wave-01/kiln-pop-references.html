@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src https: http: file:; media-src https: http: file:"><title>Kiln Pop — design references</title><style>
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#0b1020;color:#e8edff}
+body{margin:0;line-height:1.65}main{max-width:1000px;margin:32px auto;padding:32px;background:#131c30;border:1px solid #2b3954;border-radius:16px}
+h1,h2,h3{line-height:1.25}h2{margin-top:2em;border-top:1px solid #2b3954;padding-top:1em}a{color:#94c7ff}
+pre{overflow:auto;padding:16px;background:#090e1b;border-radius:8px}code{background:#090e1b;color:#bbd6f8;padding:.1em .3em}
+table{display:block;overflow:auto;border-collapse:collapse}th,td{border:1px solid #354561;padding:10px;text-align:left}th{background:#1b2b44}
+img,video{max-width:100%}blockquote{border-left:3px solid #70aaf0;margin-left:0;padding-left:18px;color:#bdcce4}
+@media(max-width:700px){main{margin:0;padding:20px;border-radius:0}}
+</style></head><body><main><pre style="white-space:pre-wrap"># Kiln Pop — design references
+
+Published documentation by Arcane Forge. Updated: 2026-10-21, Asia/Shanghai.
+
+Turn a pottery kiln to catch clay above and fire matching pieces below. Every rotation helps one station while changing the other.
+
+## Hextris
+
+Hextris contributors.
+
+[Original primary source](https://github.com/Hextris/hextris)
+
+Borrowed mechanism: Rotate one six-sided structure to route arrivals and manage space.
+
+![Hextris research capture](media/kiln-pop-reference-1.png)
+
+## 2048
+
+Gabriele Cirulli.
+
+[Original primary source](https://github.com/gabrielecirulli/2048)
+
+Borrowed mechanism: Equal values compress into a higher rank, freeing room.
+
+![2048 research capture](media/kiln-pop-reference-2.png)
+
+## What changed
+
+| Reference operation | New game operation |
+| --- | --- |
+| Radial color clearing | Opposite catch and firing stations |
+| Global slide merges | Only the firing pocket can fuse |
+| Endless score / number target | Bowl → vase → vase deliveries |
+
+These works are design references. Reference captures illustrate the compared mechanics; no reference game code, sprites or audio are included in the playable build. The Unity implementation and operational game art are original. Source-code licenses are not a claim of permission to reuse unrelated assets.
+
+[Back to the visual pitch](kiln-pop.html) · [All five pitches](index.html)
+</pre></main></body></html>

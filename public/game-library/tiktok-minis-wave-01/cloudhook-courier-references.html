@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src https: http: file:; media-src https: http: file:"><title>Cloudhook Courier — design references</title><style>
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#0b1020;color:#e8edff}
+body{margin:0;line-height:1.65}main{max-width:1000px;margin:32px auto;padding:32px;background:#131c30;border:1px solid #2b3954;border-radius:16px}
+h1,h2,h3{line-height:1.25}h2{margin-top:2em;border-top:1px solid #2b3954;padding-top:1em}a{color:#94c7ff}
+pre{overflow:auto;padding:16px;background:#090e1b;border-radius:8px}code{background:#090e1b;color:#bbd6f8;padding:.1em .3em}
+table{display:block;overflow:auto;border-collapse:collapse}th,td{border:1px solid #354561;padding:10px;text-align:left}th{background:#1b2b44}
+img,video{max-width:100%}blockquote{border-left:3px solid #70aaf0;margin-left:0;padding-left:18px;color:#bdcce4}
+@media(max-width:700px){main{margin:0;padding:20px;border-radius:0}}
+</style></head><body><main><pre style="white-space:pre-wrap"># Cloudhook Courier — design references
+
+Published documentation by Arcane Forge. Updated: 2026-10-21, Asia/Shanghai.
+
+Sling a tiny courier between floating islands. Fold the kite to land and bank your seals, or keep sailing for a more valuable chain.
+
+## CATAPULT
+
+ABA Games / Kenta Cho.
+
+[Original primary source](https://github.com/abagames/crisp-game-lib-games/blob/cfb39d2f988feb5918eb83697145b5a35adabf58/docs/catapult/main.js)
+
+Borrowed mechanism: Skipping supports grows at-risk flight value; landing banks it.
+
+![CATAPULT research capture](media/cloudhook-courier-reference-1.png)
+
+## KITE
+
+ABA Games / Kenta Cho.
+
+[Original primary source](https://github.com/abagames/crisp-game-lib-games/blob/cfb39d2f988feb5918eb83697145b5a35adabf58/docs/kite/main.js)
+
+Borrowed mechanism: A tether separates the lifted sail from the vulnerable hanging actor.
+
+![KITE research capture](media/cloudhook-courier-reference-2.png)
+
+## What changed
+
+| Reference operation | New game operation |
+| --- | --- |
+| Rolling launch / global tilt | Direct sling aim + hold-to-sail flight |
+| Separate launch and tether ideas | The courier must physically catch the bank hook |
+| Endless scoring | Finite postal route; seals add optional reward |
+
+These works are design references. Reference captures illustrate the compared mechanics; no reference game code, sprites or audio are included in the playable build. The Unity implementation and operational game art are original. Source-code licenses are not a claim of permission to reuse unrelated assets.
+
+[Back to the visual pitch](cloudhook-courier.html) · [All five pitches](index.html)
+</pre></main></body></html>

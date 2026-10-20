@@ -1,0 +1,31 @@
+{
+  "game": "Cloudhook Courier",
+  "slug": "cloudhook-courier",
+  "release": "tiktok-minis-wave-01",
+  "packaged_at": "20261021-015433",
+  "engine": "Unity 6000.4.11f1 WebGL",
+  "native_tiktok_status": "not_validated",
+  "audio": "silent",
+  "sha256": {
+    "Build/build.data": "cc7b6bf8adbda6c146646726758617a41bb0b2b1288af60796cc3cde7fe6788e",
+    "Build/build.framework.js": "7482c984a9848ebef8c4c7c5e68303ed3aa148c9188cc9f4084708583437f249",
+    "Build/build.loader.js": "f6c67750169e30f72fd6b6701354feb9fdf005804401bcf849f6da9fdced5945",
+    "Build/build.wasm": "5d0b67c5854eac3183bdde2dd7a07d30ac1fbb5063f0e76f46feff1765ac3cd3",
+    "TemplateData/MemoryProfiler.png": "0ce87be20d0c24ab6cb73b57de2004da261cc2a641e69319c6ae3fe11fc85483",
+    "TemplateData/favicon.ico": "9c13beb90ee8f70580d52a21d5233970d1c89e71e4a34a462c22610941c3c77f",
+    "TemplateData/fullscreen-button.png": "21221581673a54b8139d408d4a3f8d2b879e86827d4b6fc53b995ff7a99ee3e9",
+    "TemplateData/profiler.js": "433e40af9a544d1ef5fec67b0b52af25a851928626c3f3ef0d09b35ded610c0d",
+    "TemplateData/progress-bar-empty-dark.png": "bbee7131afe8a3365906240d89184dc86234c119467f390bc4bc6802328fdb4d",
+    "TemplateData/progress-bar-empty-light.png": "143696c060ad43d6c30f19ff5f49000927a139a2a1e4c9f45fafaa2b90d7d2be",
+    "TemplateData/progress-bar-full-dark.png": "3306a6244dcb3926fca38a28e3ced589df8ff1beed955eb17c0bbf01c918bc62",
+    "TemplateData/progress-bar-full-light.png": "12395ea785480c5cdf12fade6e6cbf49666d5bb1cef7240c113dbcba6bdc5c87",
+    "TemplateData/style.css": "8e3625e108a61dcd1d31303376d9e02d7bdc08921d254e8f4359b892b3825caa",
+    "TemplateData/unity-logo-dark.png": "c1b72d26c096487dabc948b54bc203f8dac7ed4e3f5733918798e858acb4b159",
+    "TemplateData/unity-logo-light.png": "002990aea0d946833cadc1519d5b7e50a4570bd537a0517dd79a59d3eec84da7",
+    "TemplateData/unity-logo-title-footer.png": "9e8b3bdb67c2446d16362fe59449d892100931dbbadfe6a9d923a4142b57a79f",
+    "TemplateData/webmemd-icon.png": "c56f5494640cedda273aad38d58e6ab9da625d5b3f4d875c0ff92c6192a569c2",
+    "icon.svg": "72c979e7811c6a7588a9ddde7a59eeb9c3fbbabae10e0e8e00b0367ca9f02be5",
+    "index.html": "148b2c0302a75aab81d91fd3d95815fd57619bb64fe43d8003267cfe3601903c",
+    "screenshot.png": "a81fb0dcf655045cce480076b3dd93c070ecd4ec5be4b119db35408ace3199a9"
+  }
+}
