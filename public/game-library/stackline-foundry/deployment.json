@@ -1,0 +1,34 @@
+{
+  "title": "Stackline Foundry",
+  "slug": "stackline-foundry",
+  "engine": "Unity WebGL",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "release": "ui001-arcane-forge-games-20261021",
+  "audio": "silent",
+  "human_review": "pending",
+  "compiled_files": [
+    {
+      "path": "Build/webgl.data",
+      "sha256": "587ab9f2c4104004b21208d7c7329247871f0806a87c8403ef9fb07509c07960",
+      "bytes": 4988840
+    },
+    {
+      "path": "Build/webgl.framework.js",
+      "sha256": "12d4f4f53c40bd5411514336cd042acf4cf5630a7e7aa4e8a14faee67b5e3cd6",
+      "bytes": 352689
+    },
+    {
+      "path": "Build/webgl.loader.js",
+      "sha256": "76cfc721e0756f8f45f33d613734105936778e9d91f2d1df42c666547144f04d",
+      "bytes": 26982
+    },
+    {
+      "path": "Build/webgl.wasm",
+      "sha256": "aa734427ddab48076c84f34434c8011862ceea7ff0cbc433b7ffdef9f1a778fb",
+      "bytes": 12337535
+    }
+  ]
+}

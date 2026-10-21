@@ -1,0 +1,69 @@
+{
+  "title": "Last Light Post",
+  "slug": "last-light-post",
+  "engine": "Flutter web",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "release": "ui001-arcane-forge-games-20261021",
+  "audio": "silent",
+  "human_review": "pending",
+  "compiled_files": [
+    {
+      "path": "canvaskit/canvaskit.js",
+      "sha256": "5b96deff653e229163d08bb51e5f17f0831397fd17d4ddbb3d872642738ef9ab",
+      "bytes": 86619
+    },
+    {
+      "path": "canvaskit/canvaskit.wasm",
+      "sha256": "98ff521224f8c66763d6772c94b9773d29c7fb8cd2e53342bf6e3c8203b84b4d",
+      "bytes": 7083768
+    },
+    {
+      "path": "canvaskit/chromium/canvaskit.js",
+      "sha256": "e97a3ac057e9d8c9e80b024f2d72c005d21a1f8d98e3e33f439f3744d544f88a",
+      "bytes": 86256
+    },
+    {
+      "path": "canvaskit/chromium/canvaskit.wasm",
+      "sha256": "de186b1791a7de02d9cafe60ab99ff9fe018e1ae53d9c0e190b7737464d49d17",
+      "bytes": 5708955
+    },
+    {
+      "path": "canvaskit/skwasm.js",
+      "sha256": "ca8a64f5a38c60a4632de39763da568abdf5f29c708d723dc559adb06522dc3d",
+      "bytes": 60657
+    },
+    {
+      "path": "canvaskit/skwasm.wasm",
+      "sha256": "8cb52710d025bb70154843148f2f9b5f16c4719d95809908c285b20bc18bac64",
+      "bytes": 3551820
+    },
+    {
+      "path": "canvaskit/skwasm_heavy.js",
+      "sha256": "e3039d0a604a5e2ef146e49c837dd93e01d90f292d4969a73beb3000b63dbe8b",
+      "bytes": 60770
+    },
+    {
+      "path": "canvaskit/skwasm_heavy.wasm",
+      "sha256": "1c52f15388c3f192700ab780a941cac16a7999d0e32f7fae821fa4bf90536265",
+      "bytes": 5047312
+    },
+    {
+      "path": "flutter.js",
+      "sha256": "ed5d5920a9868a8b93d790a9aae4165a62962728d4abbec5a14f600d73c53bd3",
+      "bytes": 9412
+    },
+    {
+      "path": "flutter_bootstrap.js",
+      "sha256": "372b747bb9bc53886ae0299c1e12b58a3e2136052a00d335a3862278a531e2b0",
+      "bytes": 9692
+    },
+    {
+      "path": "main.dart.js",
+      "sha256": "ca05a5795e152bb2ba6b4167670f299bd2bf9571db40ff24109a280b62740ed7",
+      "bytes": 1838752
+    }
+  ]
+}
