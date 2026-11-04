@@ -1,3 +1,5 @@
+> Historical design note. Current schema owner: `../arcane_forge_website/supabase`; do not copy migrations or run db push here.
+
 # Arcane Forge Website & Games Platform Merger Plan (Simplified)
 
 ## Overview
@@ -44,7 +46,7 @@ arcaneforge.ai/                    # Homepage (existing website)
 2. **Copy API routes** to `app/api/games/` and `app/api/admin/`
 3. **Copy games pages** to `app/games/` directory
 4. **Copy database types and utilities** to `lib/` and `types/`
-5. **Copy Supabase migrations** to `supabase/migrations/`
+5. **Schema ownership is now separate**: canonical migrations live only in `../arcane_forge_website/supabase/migrations/`; do not copy them into this repository.
 
 ### Phase 3: Update Configurations
 1. **Merge package.json dependencies**

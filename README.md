@@ -59,13 +59,10 @@ A modern web platform for hosting and playing AI-generated games. Built with Nex
    NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
-4. **Set up the database**
-   
-   Run the SQL migration in your Supabase dashboard:
-   ```bash
-   # Copy the contents of migrations/001_initial_schema.sql
-   # and run it in your Supabase SQL editor
-   ```
+4. **Database schema ownership**
+
+   Project `nydmouxljprsfymcvqko` is owned by the sibling `arcane_forge_website` repository.
+   Follow `../arcane_forge_website/docs/supabase-migrations.html`; never run schema deployment from this repo.
 
 5. **Start the development server**
    ```bash
@@ -101,7 +98,7 @@ arcane_forge_games/
 ├── public/
 │   └── games/                 # Flutter game builds
 │       └── [slug]/            # Individual game files
-├── migrations/                # Database migrations
+├── supabase/OWNERSHIP.html    # Schema owner pointer
 └── design_docs/              # Architecture documentation
 ```
 
@@ -158,7 +155,7 @@ The application uses the following main tables:
 - **comments**: Threaded comments system
 - **feedback_requests**: User feedback with optional email notifications
 
-See `migrations/001_initial_schema.sql` for the complete schema.
+See `../arcane_forge_website/supabase/migrations/` for the canonical schema history.
 
 ## Configuration
 

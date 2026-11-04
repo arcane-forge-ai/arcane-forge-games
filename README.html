@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Arcane Forge Games</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{background:#0b1220;color:#dbe4f0;font:17px/1.75 system-ui,sans-serif;margin:0}main{max-width:1080px;margin:0 auto;padding:56px 28px 90px}h1{font-size:2.3rem;line-height:1.15;color:#f8fafc;margin:0 0 28px}h2{font-size:1.45rem;color:#91d5ff;margin:44px 0 16px;padding-top:20px;border-top:1px solid #243248}h3{color:#f8fafc}a{color:#80c9ff;text-underline-offset:4px}pre{background:#111e31;border:1px solid #2a3d58;border-radius:12px;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.65}code{font-family:ui-monospace,SFMono-Regular,monospace;color:#c1e2ff}p code,li code{background:#142339;border-radius:4px;padding:2px 5px}li{margin:8px 0}blockquote{border-left:4px solid #e6b969;margin:24px 0;padding:8px 24px;background:#1b2331}hr{border:0;border-top:1px solid #2a3d58}.muted{color:#9baec6}footer{margin-top:50px;border-top:1px solid #243248;padding-top:20px;font-size:13px;color:#8fa3bd}@media print{body{background:white;color:#152038}h1,h2,h3{color:#152038}pre{background:#f3f6fa}code{color:#152038}}</style></head><body><main><h1>Arcane Forge Games</h1><p>A modern web platform for hosting and playing AI-generated games. Built with Next.js 14, TypeScript, Tailwind CSS, and Supabase.</p><h2>Features</h2><ul><li><p>🎮 <strong>Game Library</strong>: Browse and play AI-generated games</p></li><li><p>💬 <strong>Threaded Comments</strong>: Engage with other players through nested comments</p></li><li><p>📊 <strong>Game Statistics</strong>: Track plays, likes, and dislikes</p></li><li><p>📝 <strong>Feedback System</strong>: Submit feedback with optional email notifications</p></li><li><p>🔐 <strong>Admin Interface</strong>: Manage games through a secure admin panel</p></li><li><p>📱 <strong>Responsive Design</strong>: Works seamlessly on desktop and mobile</p></li><li><p>⚡ <strong>Fast Performance</strong>: Built with Next.js 14 and optimized for speed</p></li></ul><h2>Tech Stack</h2><ul><li><p><strong>Frontend</strong>: Next.js 14 (App Router), TypeScript, Tailwind CSS</p></li><li><p><strong>Backend</strong>: Next.js API Routes, Supabase (PostgreSQL)</p></li><li><p><strong>Authentication</strong>: Token-based admin authentication</p></li><li><p><strong>Deployment</strong>: Vercel (recommended)</p></li></ul><h2>Getting Started</h2><h3>Prerequisites</h3><ul><li><p>Node.js 18+</p></li><li><p>npm or yarn</p></li><li><p>Supabase account</p></li></ul><h3>Installation</h3><ol><li><p><strong>Clone the repository</strong></p><pre><code>git clone &lt;repository-url&gt;
+cd arcane_forge_games</code></pre></li><li><p><strong>Install dependencies</strong></p><pre><code>npm install</code></pre></li><li><p><strong>Set up environment variables</strong></p><pre><code>cp env.example .env.local</code></pre><p>Fill in your environment variables:</p><pre><code># Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url_here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
+
+# Admin token for API
+ADMIN_API_TOKEN=your_secure_admin_token_here
+
+# App URL
+NEXT_PUBLIC_APP_URL=http://localhost:3000</code></pre></li><li><p><strong>Database schema ownership</strong></p><p>Project <code>nydmouxljprsfymcvqko</code> is owned by the sibling <code>arcane_forge_website</code> repository.
+Follow <code>../arcane_forge_website/docs/supabase-migrations.html</code>; never run schema deployment from this repo.</p></li><li><p><strong>Start the development server</strong></p><pre><code>npm run dev</code></pre></li></ol><p>Visit <code>http://localhost:3000</code> to see the application.</p><h2>Project Structure</h2><pre><code>arcane_forge_games/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── api/               # API routes
+│   │   │   ├── games/         # Game-related endpoints
+│   │   │   └── admin/         # Admin endpoints
+│   │   ├── games/             # Game pages
+│   │   │   └── [slug]/        # Individual game page
+│   │   └── admin/             # Admin interface
+│   ├── components/            # React components
+│   │   ├── Banner.tsx         # Game count banner
+│   │   ├── GameCard.tsx       # Game grid item
+│   │   ├── GameEmbed.tsx      # Game iframe
+│   │   ├── StatsBar.tsx       # Like/dislike/play stats
+│   │   ├── CommentsThread.tsx # Threaded comments
+│   │   ├── CommentForm.tsx    # Comment submission
+│   │   └── FeedbackForm.tsx   # Feedback submission
+│   ├── lib/                   # Utilities and configurations
+│   │   ├── supabase.ts        # Supabase client
+│   │   └── utils.ts           # Helper functions
+│   └── types/                 # TypeScript type definitions
+├── public/
+│   └── games/                 # Flutter game builds
+│       └── [slug]/            # Individual game files
+├── supabase/OWNERSHIP.html    # Schema owner pointer
+└── design_docs/              # Architecture documentation</code></pre><h2>API Endpoints</h2><h3>Public Endpoints</h3><ul><li><p><code>GET /api/games</code> - List all games</p></li><li><p><code>GET /api/games/[slug]</code> - Get game details with stats</p></li><li><p><code>POST /api/games/[slug]/play</code> - Increment play count</p></li><li><p><code>POST /api/games/[slug]/like</code> - Increment like count</p></li><li><p><code>POST /api/games/[slug]/dislike</code> - Increment dislike count</p></li><li><p><code>GET /api/games/[slug]/comments</code> - Get game comments</p></li><li><p><code>POST /api/games/[slug]/comments</code> - Post a comment</p></li><li><p><code>POST /api/games/[slug]/feedback</code> - Submit feedback</p></li></ul><h3>Admin Endpoints (requires authorization header)</h3><ul><li><p><code>GET /api/admin/games</code> - List all games with stats</p></li><li><p><code>POST /api/admin/games</code> - Create a new game</p></li></ul><h2>Adding Games</h2><h3>Via Admin Interface</h3><ol><li><p>Visit <code>/admin/games</code></p></li><li><p>Enter your admin token</p></li><li><p>Fill out the game form with:</p><ul><li><p>Title</p></li><li><p>Description</p></li><li><p>Icon URL</p></li><li><p>Screenshot URL</p></li><li><p>Slug (optional - auto-generated from title)</p></li></ul></li></ol><h3>Game File Structure</h3><p>Place Flutter game builds in <code>/public/games/[slug]/</code>:</p><pre><code>public/games/my-awesome-game/
+├── index.html              # Main game file
+├── main.dart.js           # Compiled Dart code
+├── flutter.js             # Flutter web engine
+└── assets/                # Game assets
+    ├── images/
+    └── sounds/</code></pre><h2>Database Schema</h2><p>The application uses the following main tables:</p><ul><li><p><strong>games</strong>: Game information (title, description, URLs)</p></li><li><p><strong>stats</strong>: Play counts, likes, dislikes per game</p></li><li><p><strong>comments</strong>: Threaded comments system</p></li><li><p><strong>feedback_requests</strong>: User feedback with optional email notifications</p></li></ul><p>See <code>../arcane_forge_website/supabase/migrations/</code> for the canonical schema history.</p><h2>Configuration</h2><h3>Environment Variables</h3><p>| Variable | Description | Required |
+|----------|-------------|----------|
+| <code>NEXT_PUBLIC_SUPABASE_URL</code> | Your Supabase project URL | Yes |
+| <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> | Supabase anonymous key | Yes |
+| <code>SUPABASE_SERVICE_ROLE_KEY</code> | Supabase service role key | Yes |
+| <code>ADMIN_API_TOKEN</code> | Secret token for admin access | Yes |
+| <code>NEXT_PUBLIC_APP_URL</code> | Your app's URL | Yes |</p><h3>Admin Authentication</h3><p>The admin interface uses a simple token-based authentication system. Set a secure <code>ADMIN_API_TOKEN</code> in your environment variables and use it to access the admin panel.</p><h2>Deployment</h2><h3>Vercel (Recommended)</h3><ol><li><p>Push your code to GitHub</p></li><li><p>Connect your repository to Vercel</p></li><li><p>Set your environment variables in Vercel dashboard</p></li><li><p>Deploy</p></li></ol><h3>Manual Deployment</h3><ol><li><p>Build the application:</p><pre><code>npm run build</code></pre></li><li><p>Start the production server:</p><pre><code>npm start</code></pre></li></ol><h2>Development</h2><h3>Running Tests</h3><pre><code>npm test                # Run unit tests
+npm run test:e2e       # Run end-to-end tests</code></pre><h3>Linting and Formatting</h3><pre><code>npm run lint           # Check code style
+npm run lint:fix       # Fix linting issues</code></pre><h2>Contributing</h2><ol><li><p>Fork the repository</p></li><li><p>Create a feature branch: <code>git checkout -b feature/my-feature</code></p></li><li><p>Commit your changes: <code>git commit -m 'Add my feature'</code></p></li><li><p>Push to the branch: <code>git push origin feature/my-feature</code></p></li><li><p>Submit a pull request</p></li></ol><h2>License</h2><p>This project is licensed under the MIT License - see the LICENSE file for details.</p><h2>Support</h2><p>For support, please open an issue on GitHub or contact the development team.</p><footer>Local internal documentation · Arcane Forge · Static HTML companion</footer></main></body></html>

@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>1. Project Overview</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{background:#0b1220;color:#dbe4f0;font:17px/1.75 system-ui,sans-serif;margin:0}main{max-width:1080px;margin:0 auto;padding:56px 28px 90px}h1{font-size:2.3rem;line-height:1.15;color:#f8fafc;margin:0 0 28px}h2{font-size:1.45rem;color:#91d5ff;margin:44px 0 16px;padding-top:20px;border-top:1px solid #243248}h3{color:#f8fafc}a{color:#80c9ff;text-underline-offset:4px}pre{background:#111e31;border:1px solid #2a3d58;border-radius:12px;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.65}code{font-family:ui-monospace,SFMono-Regular,monospace;color:#c1e2ff}p code,li code{background:#142339;border-radius:4px;padding:2px 5px}li{margin:8px 0}blockquote{border-left:4px solid #e6b969;margin:24px 0;padding:8px 24px;background:#1b2331}hr{border:0;border-top:1px solid #2a3d58}.muted{color:#9baec6}footer{margin-top:50px;border-top:1px solid #243248;padding-top:20px;font-size:13px;color:#8fa3bd}@media print{body{background:white;color:#152038}h1,h2,h3{color:#152038}pre{background:#f3f6fa}code{color:#152038}}</style></head><body><main><blockquote><p>Historical design note. Current schema owner: <code>../arcane_forge_website/supabase</code>; do not copy migrations or run db push here.</p></blockquote><h1>1. Project Overview</h1><p><strong>Purpose</strong>
+ Build a public-facing website (games.arcaneforge.ai) to host AI-generated games. Users can browse a library of games, click into any to play the embedded Flutter build, leave threaded comments/feedback, see play‑counts/likes/dislikes, and optionally supply an email for future notifications when a new version (based on their feedback) is ready.</p><p><strong>Goals for v0</strong></p><ul><li><p>Display a banner: “N games have been generated”</p></li><li><p>Show a grid of game cards (icon, title, screenshot, short description)</p></li><li><p>Detail page for each game with:</p><ul><li><p>Embedded Flutter build (served from <code>/public/games/[slug]</code>)</p></li><li><p>Play count + like/dislike buttons</p></li><li><p>Threaded comments (anonymous nickname + reply support)</p></li><li><p>Feedback form (free text + optional email + “notify me” flag)</p></li></ul></li><li><p>No forced authentication for public features</p></li><li><p>Manual Supabase migrations triggered by devs</p></li><li><p>Admin UI page to add new games easily</p></li><li><p>Backend: Supabase (Postgres)</p></li><li><p>Frontend: Next.js + Tailwind CSS</p></li><li><p>Deployment: Vercel (static + API routes)</p></li></ul><h1>2. Technical Architecture</h1><pre><code>[Browser] → Next.js App (pages + Tailwind) → Vercel
+                   ↳ /public/games/[slug]/* → Flutter builds (CDN)
+
+Next.js API Routes → Supabase Postgres
+  • /api/games
+  • /api/games/[slug]
+  • /api/games/[slug]/play
+  • /api/games/[slug]/like
+  • /api/games/[slug]/dislike
+  • /api/games/[slug]/comments (GET + POST)
+  • /api/games/[slug]/feedback (POST)
+  • /api/admin/games (GET + POST for admin UI)</code></pre><ul><li><p><strong>Supabase Auth</strong>: reserved for v1; v0 uses anonymous flows</p></li><li><p><strong>No Formspree</strong>: feedback emails recorded to DB; manual sendout</p></li></ul><h1>3. Data Model</h1><p>All tables use <code>uuid</code> PK, timestamps default <code>now()</code>.</p><h2>3.1. <code>games</code></h2><h2>3.2. <code>stats</code></h2><blockquote><p>Alternatively, collapse <code>stats</code> into <code>games</code> if preferred.</p></blockquote><h2>3.3. <code>comments</code> (threaded)</h2><ul><li><p>Indexed on <code>(game_slug, parent_id, created_at)</code> for fetching threads.</p></li></ul><h2>3.4. <code>feedback_requests</code></h2><h1>4. API Specification</h1><h3>Public Endpoints</h3><h4><code>GET /api/games</code></h4><ul><li><p><strong>Response</strong>: <code>{ games: Game[] }</code></p></li></ul><h4><code>GET /api/games/[slug]</code></h4><ul><li><p><strong>Response</strong>: <code>{ game: Game, stats: Stats }</code></p></li></ul><h4><code>POST /api/games/[slug]/play</code></h4><ul><li><p><strong>Effect</strong>: upsert <code>plays += 1</code></p></li><li><p><strong>Response</strong>: <code>{ stats: Stats }</code></p></li></ul><h4><code>POST /api/games/[slug]/like</code> / <code>/dislike</code></h4><ul><li><p><strong>Effect</strong>: upsert likes/dislikes</p></li><li><p><strong>Response</strong>: <code>{ stats: Stats }</code></p></li></ul><h4><code>GET /api/games/[slug]/comments?limit=&amp;offset=</code></h4><ul><li><p><strong>Response</strong>: <code>{ comments: Comment[] }</code> (flat list; build tree in client)</p></li></ul><h4><code>POST /api/games/[slug]/comments</code></h4><ul><li><p><strong>Body</strong>: <code>{ parent_id?, name, text }</code></p></li><li><p><strong>Response</strong>: <code>{ comment: Comment }</code></p></li></ul><h4><code>POST /api/games/[slug]/feedback</code></h4><ul><li><p><strong>Body</strong>: <code>{ message, email?, want_notify? }</code></p></li><li><p><strong>Effect</strong>: INSERT into <code>feedback_requests</code></p></li><li><p><strong>Response</strong>: <code>{ feedback: FeedbackRequest }</code></p></li></ul><h3>Admin Endpoints (protected via env TOKEN)</h3><h4><code>GET /api/admin/games</code></h4><ul><li><p><strong>Response</strong>: <code>{ games: Game[] }</code></p></li></ul><h4><code>POST /api/admin/games</code></h4><ul><li><p><strong>Body</strong>: <code>{ slug, title, description, icon_url, screenshot_url }</code></p></li><li><p><strong>Response</strong>: <code>{ game: Game }</code></p></li></ul><h1>5. UI/UX &amp; Component Library (Generic)</h1><p><em>All UI built with Next.js + Tailwind CSS. Sketch in Figma or code sandbox with any component kit.</em></p><h2>5.1. Pages &amp; Routes</h2><ul><li><p><strong><code>/games</code></strong>: Library page</p><ul><li><p>Banner showing total count</p></li><li><p>Responsive grid of <code>GameCard</code></p></li><li><p><strong>(future)</strong> filter on game</p></li></ul></li><li><p><strong><code>/games/[slug]</code></strong>: Detail page</p><ul><li><p><code>GameEmbed</code> (iframe)</p></li><li><p><code>StatsBar</code> (plays, like/dislike)</p></li><li><p><code>CommentsThread</code> (nested view)</p></li><li><p><code>CommentForm</code></p></li><li><p><code>FeedbackForm</code></p></li></ul></li><li><p><strong><code>/admin/games</code></strong>: Admin page</p><ul><li><p>Simple form + preview for adding new games</p></li><li><p>List of existing entries</p></li></ul></li><li><p><strong>(future)</strong> <code>/games/trending</code></p></li></ul><h2>5.2. Key Components</h2><h3>5.3. Threaded Comments</h3><ul><li><p>Use an existing React tree component (e.g. <a href="https://github.com/%3Cexample%3E"><code>react-comment-tree</code></a>, or build simple recursion)</p></li><li><p>UI: indent replies, show “Reply” link under each comment</p></li><li><p>Client builds tree by grouping comments by <code>parent_id</code></p></li></ul><h1>6. Authentication &amp; Authorization</h1><ul><li><p><strong>Public</strong>: no login required for browsing, playing, feedback, comments</p></li><li><p><strong>Admin</strong>: protect <code>/admin/games</code> via a simple env-based token check in API and client</p></li></ul><h1>7. Email &amp; Notification Workflow</h1><ul><li><p><strong>v0</strong>: store feedback in DB only; no automated emails</p></li><li><p><strong>Manual</strong>: devs review <code>feedback_requests</code> table and send emails by hand</p></li><li><p><strong>Future</strong>: integrate SendGrid/Mailgun for “new game ready” notifications</p></li></ul><h1>8. Environment Variables</h1><pre><code># Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Admin token for API
+ADMIN_API_TOKEN=
+
+# App URL
+NEXT_PUBLIC_APP_URL=https://games.arcaneforge.ai</code></pre><h1>9. Directory Structure</h1><pre><code>/ project-root
+├─ /app or /pages
+│   ├─ /games
+│   │   ├─ index.tsx       # GET /games
+│   │   └─ [slug].tsx      # GET /games/[slug]
+│   ├─ /admin
+│   │   └─ games.tsx       # Admin create/list
+│   └─ /components
+│       ├─ Banner.tsx
+│       ├─ GameCard.tsx
+│       ├─ GameEmbed.tsx
+│       ├─ StatsBar.tsx
+│       ├─ CommentsThread.tsx
+│       ├─ CommentForm.tsx
+│       ├─ FeedbackForm.tsx
+│       └─ AdminGameForm.tsx
+├─ /pages/api
+│   ├─ games
+│   │   ├─ index.ts
+│   │   └─ [slug]
+│   │       ├─ index.ts
+│   │       ├─ play.ts
+│   │       ├─ like.ts
+│   │       ├─ dislike.ts
+│   │       ├─ comments.ts
+│   │       └─ feedback.ts
+│   └─ admin
+│       └─ games.ts
+├─ /public
+│   └─ /games/[slug]/*    # Flutter builds + assets
+├─ /styles
+│   ├─ globals.css
+│   └─ tailwind.config.js
+├─ /migrations            # Supabase migrations (manual trigger)
+├─ jest.config.js
+├─ playwright.config.ts
+├─ package.json
+└─ README.md</code></pre><h1>10. Deployment &amp; CI/CD</h1><ul><li><p><strong>Supabase migrations</strong>: schema deployment is owned by <code>../arcane_forge_website</code>; follow its <code>docs/supabase-migrations.html</code> separately from game deployment.</p></li><li><p><strong>Vercel</strong>: connect repo → set env vars → automatic deploy on push to <code>main</code></p></li><li><p><strong>Admin API token</strong>: set in Vercel secrets</p></li></ul><h1>11. Testing Strategy</h1><ul><li><p><strong>Unit tests</strong> (Jest) for utilities + API routes</p></li><li><p><strong>E2E tests</strong> (Playwright) for public flows (browse, play, comment, feedback)</p></li></ul><h1>12. Coding Standards &amp; Conventions</h1><ul><li><p><strong>TypeScript</strong> + <strong>Next.js</strong></p></li><li><p><strong>Tailwind CSS</strong> for styling</p></li><li><p><strong>ESLint</strong> + <strong>Prettier</strong> with standard configs</p></li><li><p><strong>Conventional commits</strong> + branch naming: <code>feat/</code>, <code>fix/</code>, <code>chore/</code></p></li></ul><h1>13. Onboarding Checklist</h1><ul><li><p>Clone repo &amp; install deps (<code>npm ci</code>)</p></li><li><p>Copy <code>.env.local</code> from <code>.env.example</code> &amp; fill keys</p></li><li><p>Follow <code>../arcane_forge_website/docs/supabase-migrations.html</code> for schema setup; do not run migration commands from the games repository.</p></li><li><p><code>npm run dev</code> → visit <code>http://localhost:3000/games</code></p></li><li><p>Explore pages, components, API routes</p></li><li><p>Create a feature branch and start coding!</p></li></ul><h1>14. Next Steps</h1><ol><li><p>Build core UI for <code>/games</code> and <code>/games/[slug]</code></p></li><li><p>Implement Supabase schema + API routes</p></li><li><p>Implement threaded comments UI</p></li><li><p>Add admin page for game CRUD</p></li><li><p>Write tests &amp; deploy to staging</p></li></ol><footer>Local internal documentation · Arcane Forge · Static HTML companion</footer></main></body></html>

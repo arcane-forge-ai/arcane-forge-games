@@ -1,3 +1,5 @@
+> Historical design note. Current schema owner: `../arcane_forge_website/supabase`; do not copy migrations or run db push here.
+
 # 1. Project Overview
 
 **Purpose**
@@ -240,7 +242,7 @@ NEXT_PUBLIC_APP_URL=https://games.arcaneforge.ai
 
 # 10. Deployment & CI/CD
 
-* **Supabase migrations**: manually run `supabase db push` before deploy
+* **Supabase migrations**: schema deployment is owned by `../arcane_forge_website`; follow its `docs/supabase-migrations.html` separately from game deployment.
 
 * **Vercel**: connect repo → set env vars → automatic deploy on push to `main`
 
@@ -268,7 +270,7 @@ NEXT_PUBLIC_APP_URL=https://games.arcaneforge.ai
 
 * Copy `.env.local` from `.env.example` & fill keys
 
-* Run `supabase db push` to set up schema
+* Follow `../arcane_forge_website/docs/supabase-migrations.html` for schema setup; do not run migration commands from the games repository.
 
 * `npm run dev` → visit `http://localhost:3000/games`
 
