@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071521">
+<meta name="description" content="Gameplay and design notes for Tideglass Relay, a compact underwater specimen-routing puzzle.">
+<title>Tideglass Relay · Dispatch Log</title>
+<link rel="icon" href="../icon.png" type="image/png">
+<link rel="stylesheet" href="log.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../index.html"><img src="../icon.png" width="32" height="32" alt="">Tideglass Relay</a>
+  <a class="nav-link" href="#footage">Gameplay footage</a>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="tag">Dispatch log</p>
+      <h1>Tideglass<br>Relay</h1>
+      <p>Supply two underwater observatories. Read their requests, route each glowing specimen, and keep one in reserve for the delivery you can’t make yet.</p>
+      <a class="button" href="../index.html">Play Tideglass Relay <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="hero-screen">
+      <img src="media/opening.png" width="390" height="844" alt="Opening dive console with Pearl ready for Amber and Bloom up next">
+    </figure>
+  </section>
+  <section id="footage" class="section">
+    <p class="tag">Recorded play</p>
+    <h2>From first send to the trench</h2>
+    <div class="clips">
+      <article>
+        <video controls playsinline preload="metadata" poster="media/opening.png" width="390" height="844" aria-label="Recording of the first dive">
+          <source src="media/first-dive.mp4" type="video/mp4">
+        </video>
+        <div>
+          <h3>Beacon Shelf</h3>
+          <p>The first Pearl goes to Amber. Bloom waits in reserve until a Shell delivery opens a slot at Blue.</p>
+          <a href="media/first-dive.mp4">Open first-dive video ↗</a>
+        </div>
+      </article>
+      <article>
+        <video controls playsinline preload="metadata" poster="media/tidal-choice.png" width="390" height="844" aria-label="Recording of the tidal decision at Midnight Trench">
+          <source src="media/tidal-choice.mp4" type="video/mp4">
+        </video>
+        <div>
+          <h3>Midnight Trench</h3>
+          <p>Both stations want Pearl. Blue offers 35 extra points. Amber opens a slot for the incoming Shell while the reserve is full.</p>
+          <a href="media/tidal-choice.mp4">Open tidal-decision video ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="section design">
+    <div>
+      <p class="tag">Design notes</p>
+      <h2>Every delivery changes the next request</h2>
+      <p>The first dive teaches one send and one swap at a time. Kelp Gate asks the pilot to read ahead. The final tide creates a choice between scoring a bonus and avoiding congestion.</p>
+      <dl>
+        <div><dt>Ordered requests</dt><dd><a href="https://abagames.github.io/crisp-game-lib-games/?photonline">PHOTON LINE</a> inspired the two visible recipes and selective acceptance.</dd></div>
+        <div><dt>Route changes</dt><dd><a href="https://abagames.github.io/crisp-game-lib-games/?mirrorfloor">MIRROR FLOOR</a> inspired the way a successful pickup reshapes the next move.</dd></div>
+        <div><dt>Underwater light</dt><dd><a href="https://oceanexplorer.noaa.gov/education/bioluminescence/">NOAA’s bioluminescence reference</a> informed the dark-water palette and glowing specimen shapes.</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <img src="media/expedition.png" width="390" height="844" alt="Completed expedition with full hull, personal best and an option to replay with a remixed route" loading="lazy">
+      <figcaption>The clean route completed all three dives with 2,090 points.</figcaption>
+    </figure>
+  </section>
+</main>
+<footer class="bar credits">
+  <p>Sound by <a href="https://opengameart.org/content/underwater-ambient-pad">isaiah658</a> and <a href="https://kenney.nl/assets/sci-fi-sounds">Kenney</a>. Typeface licenses in <a href="../assets/type-licenses.txt">the release credits</a>.</p>
+  <a href="../index.html">Play the game ↗</a>
+</footer>
+</body>
+</html>

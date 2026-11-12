@@ -1,0 +1,6 @@
+{
+  "slug": "tideglass-relay",
+  "version": "1.0.0",
+  "runtime": "Canvas2D",
+  "gameJsSha256": "8708f43e25b61d42a88c749be582d804bc681c92efaa6181c60070cb7f570e86"
+}
