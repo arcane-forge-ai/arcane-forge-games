@@ -1,0 +1,31 @@
+:root{color-scheme:dark;--bg:#101c22;--panel:#172831;--ink:#f4e9ce;--sub:#b9c6c6;--gold:#f4bc78;--rule:#344c54}
+@font-face{font-family:Instrument Serif;src:url('./assets/InstrumentSerif-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Instrument Sans;src:url('./assets/InstrumentSans.ttf') format('truetype');font-display:swap;font-weight:400 700}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'Instrument Sans',system-ui,sans-serif}
+a{color:var(--gold);text-underline-offset:.2em}
+a:focus-visible,video:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+.shell{width:min(100% - 40px,1010px);margin-inline:auto}
+.hero{min-height:470px;display:grid;align-items:center;background:#13232c linear-gradient(90deg,#0b151bea 0%,#0b151ba1 40%,#0b151b20 100%);background-image:linear-gradient(90deg,#0b151bef 5%,#0b151ba8 46%,#0b151b28 100%),url('./assets/yard.jpg');background-size:cover;background-position:center 18%;border-bottom:1px solid var(--rule)}
+.hero-content{padding-block:36px 42px}
+.home{display:inline-block;font-size:.8rem;font-weight:700;color:var(--ink);text-decoration:none}
+h1,h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;line-height:.95;margin:0}
+h1{font-size:clamp(4.3rem,12vw,8.8rem);letter-spacing:-.045em;margin-top:25px}
+h1 span{color:var(--gold)}
+h2{font-size:clamp(2.8rem,6vw,4.2rem);letter-spacing:-.028em}
+p{max-width:56ch;color:var(--sub)}
+.hero p{color:#e1e8e2;max-width:44ch;font-size:1.12rem}
+.play{display:inline-flex;gap:25px;align-items:center;border-radius:9px;padding:12px 18px;background:var(--gold);color:#201c17;text-decoration:none;font-weight:700}
+main section{padding-block:48px;border-bottom:1px solid var(--rule)}
+.footage{display:grid;grid-template-columns:1fr minmax(170px,285px);gap:44px;align-items:center}
+video{display:block;width:100%;height:auto;aspect-ratio:390/844;max-height:560px;background:#081219;border:1px solid var(--rule);border-radius:12px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:25px}
+figure{margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+figcaption{padding:15px;color:var(--sub);font-size:.93rem}
+figcaption strong{color:var(--ink)}
+.references ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:0;margin:25px 0 0;gap:24px;list-style:none}
+.references li{border-top:1px solid var(--rule);padding-top:12px}
+.references p{font-size:.94rem}
+footer{padding-block:32px 50px;font-size:.87rem}
+@media(max-width:600px){.hero{min-height:0}.footage,.gallery,.references ul{grid-template-columns:1fr}.footage{gap:20px}.footage video,figure{width:min(100%,340px);margin-inline:auto}main section{padding-block:36px}.hero{background-position:62% 15%}.hero p{font-size:1rem}}

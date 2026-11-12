@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b151b">
+<meta name="description" content="Route lantern carts through a night rail yard. Each cart changes the tracks it leaves behind.">
+<title>Switchyard After Dark</title>
+<script>
+  // The host also rewrites the directory URL without redirecting to a trailing slash.
+  if (/^\/game-library\/[^/]+$/.test(location.pathname)) {
+    const base = document.createElement('base');
+    base.href = location.pathname + '/';
+    document.head.append(base);
+  }
+</script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;background:#09141c}
+main,canvas,#controls{position:absolute;inset:0;display:block;touch-action:none}
+main{inset:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+@font-face{font-family:'Instrument Serif';src:url('./assets/InstrumentSerif-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Instrument Sans';src:url('./assets/InstrumentSans.ttf') format('truetype');font-display:swap;font-weight:400 700}
+canvas{pointer-events:none}
+#controls button{position:absolute;appearance:none;margin:0;padding:0;border:0;background:transparent;border-radius:8px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#controls button:active{background:rgba(255,231,188,.11)}
+#controls button:focus-visible{outline:2px solid #fbda9c;outline-offset:2px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+</style>
+<script src="./core.js" defer></script>
+<script src="./paint.js" defer></script>
+<script src="./browser.js" defer></script>
+</head>
+<body data-slice="browser">
+<main aria-label="Switchyard After Dark">
+  <canvas aria-hidden="true"></canvas>
+  <div id="controls" aria-label="Game controls"></div>
+  <p id="live" class="visually-hidden" aria-live="polite">Opening the switchyard.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101c22">
+<meta name="description" content="See real gameplay and the design references for Switchyard After Dark.">
+<title>Switchyard After Dark · Gameplay &amp; design</title>
+<link rel="stylesheet" href="./review.css">
+</head>
+<body>
+<header class="hero">
+  <div class="shell hero-content">
+    <a class="home" href="/games">Arcane Forge Games</a>
+    <h1>Switchyard<br><span>After Dark</span></h1>
+    <p>Night shift at a mountain rail yard. Send lantern carts to their matching depots. Every cart flips the switches it passes, changing the route for the cart behind it.</p>
+    <a class="play" href="./index.html">Play Switchyard <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main class="shell">
+  <section class="footage" aria-labelledby="footage-heading">
+    <div>
+      <h2 id="footage-heading">From first light to night freight</h2>
+      <p>This recorded touch playtest follows the first delivery, the route a cart leaves behind, and a later detour to pick up a brass stamp.</p>
+      <a href="./media/first-three-jobs.mp4">Open the gameplay video</a>
+    </div>
+    <video controls playsinline preload="metadata" poster="./media/stamp.jpg" aria-label="Silent browser playtest of the first three jobs">
+      <source src="./media/first-three-jobs.webm" type="video/webm">
+      <source src="./media/first-three-jobs.mp4" type="video/mp4">
+      <a href="./media/first-three-jobs.mp4">Playtest video</a>
+    </video>
+  </section>
+  <section aria-labelledby="choices">
+    <h2 id="choices">Three choices at the controls</h2>
+    <div class="gallery">
+      <figure>
+        <img src="./media/opening.jpg" width="390" height="844" alt="Opening job showing the violet cart, its glowing switch, and a dotted route ending at Amber.">
+        <figcaption><strong>Line up the route.</strong> Tap a round switch to redirect the dotted preview before you dispatch.</figcaption>
+      </figure>
+      <figure>
+        <img src="./media/inherited.jpg" width="390" height="844" alt="The second job after its first delivery. An amber cart is now lined up with the left depot.">
+        <figcaption><strong>Leave the next cart a path.</strong> A switch rolls over as the cart passes, so an easy delivery can set up the next one.</figcaption>
+      </figure>
+      <figure>
+        <img src="./media/stamp.jpg" width="390" height="844" alt="Night Freight with a glowing brass stamp on the previewed route.">
+        <figcaption><strong>Take the long way for a stamp.</strong> Later jobs ask you to weigh spare switch throws against a bonus on one branch.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="references" aria-labelledby="references">
+    <h2 id="references">Design references</h2>
+    <ul>
+      <li><a href="https://github.com/TomWHall/Descensus2">Descensus 2</a><p>A visible deflection changes the path of something already moving. Switchyard turns that idea into a plan you can read before committing.</p></li>
+      <li><a href="https://abagames.github.io/crisp-game-lib-games/?ladderdrop">LADDER DROP</a><p>Simple input changes the route of an autonomous traveler, and a visible reward makes the detour a choice.</p></li>
+      <li><a href="https://github.com/lutzroeder/digger">Digger</a><p>The board inherits the consequences of the last move. Here, each crossed switch reverses for the following cart.</p></li>
+    </ul>
+  </section>
+</main>
+<footer class="shell">
+  <a href="./index.html">Play Switchyard After Dark</a>
+  <p>Game sound recordings by Nox_Sound, _sinny_, Sadiquecat, and wwstudioswastaken. <a href="./credits.html">Audio and type credits</a></p>
+</footer>
+</body>
+</html>

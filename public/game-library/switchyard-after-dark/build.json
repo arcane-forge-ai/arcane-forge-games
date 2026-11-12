@@ -1,0 +1,20 @@
+{
+  "build": "de7b184a67b48c80",
+  "target": "browser",
+  "files": {
+    "assets/InstrumentSans-OFL.txt": "9e27a72ed30eb49a08678f6a5d6ed98ec7ba5368f541637ee0683ec9134ef966",
+    "assets/InstrumentSans.ttf": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+    "assets/InstrumentSerif-OFL.txt": "129ed7618959716959f2941fdd5b49e0ad6e6c1d78726761786a00253d865521",
+    "assets/InstrumentSerif-Regular.ttf": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88",
+    "assets/ambience.mp3": "920e13db13ae1f940acf8b132383d3ed44db02acf32dc829612ec92c7c4c2c43",
+    "assets/deliver.mp3": "911f189a29bd9c3c20f1f7bf5bbf15c73eaf8cf77325417ff1e07f041c8f0a71",
+    "assets/dispatch.mp3": "bb9cdd45ea87ab1fb9e161cd834ff29773a7b1a52cdfbeb5908a47e4d970bd4c",
+    "assets/miss.mp3": "1c03c4385bcc6abe28e7499a455cd83c5d0230eb649492e2251c93cf6690ee8d",
+    "assets/switch.mp3": "6c888eff673160d4685927645aa0862f029b7417d8d91500eb9523c7fcf5de34",
+    "assets/yard.jpg": "3f5cc060b43199876719b75ec387abeaac60a3c1325ce2d512f93532a221a3fe",
+    "browser.js": "be9be74d74e4096646a15c8a8fd37b5362dc44546bd5a537d6c6db62ec461efa",
+    "core.js": "e87e2a0091c7d5c9351bae689746852f2f26dead271f48c24332dc494b15ebc6",
+    "index.html": "67b3139a5b39b28e3b3d3b02ba6011f3994d142665b2e5150a5bb79815c81d55",
+    "paint.js": "fa3834615ebe48b0ac98eea34aec7776441d6587dcc6bb779b1163863f480cdc"
+  }
+}
