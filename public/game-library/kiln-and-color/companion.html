@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#15231e">
+<meta name="description" content="See how Kiln &amp; Color turns glaze timing and color layering into a pocket-size ceramics studio.">
+<title>Kiln &amp; Color | Studio notes</title>
+<style>
+:root{color-scheme:dark;--bg:#15231e;--panel:#20352d;--ink:#f6eddb;--sub:#bdcbbd;--mint:#b6d8ba;--edge:#3d5548}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#2e4739,var(--bg) 640px);color:var(--ink);font:16px/1.65 system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,42px)}
+header{padding:22px 0;border-bottom:1px solid var(--edge)}nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+a{color:var(--mint);text-underline-offset:4px}nav a:first-child{color:var(--ink);text-decoration:none;font-size:14px;font-weight:700}
+h1,h2{font-family:Georgia,serif;line-height:1.05;margin:0;text-wrap:balance}h1{font-size:clamp(54px,9vw,104px);letter-spacing:-.06em}h2{font-size:clamp(28px,5vw,44px);letter-spacing:-.035em}h3{font-size:17px;margin:0 0 8px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,6vw,76px);align-items:center;padding:clamp(38px,8vw,88px) 0}
+.hero p{font-size:clamp(18px,2.4vw,23px);max-width:35ch;color:var(--sub);margin:20px 0 26px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.16em;color:var(--mint);text-transform:uppercase;margin-bottom:14px}.cta{display:inline-block;background:var(--mint);color:#183323;padding:10px 19px;border-radius:9px;font-weight:800;text-decoration:none}
+.hero img{display:block;width:min(100%,300px);height:auto;margin:auto;border-radius:19px;border:1px solid #ffffff25;box-shadow:0 18px 45px #0006}
+section{border-top:1px solid var(--edge);padding:44px 0}section>p{max-width:63ch;color:var(--sub)}
+.film{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;background:var(--panel);border:1px solid var(--edge);border-radius:18px;padding:clamp(16px,4vw,34px);margin-top:22px}
+video{display:block;width:min(100%,270px);aspect-ratio:390/844;background:#0a1510;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:23px}figure{margin:0;min-width:0}.grid img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--edge)}figcaption{font-size:14px;margin-top:10px;color:var(--sub)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.cards article{padding:20px;background:var(--panel);border:1px solid var(--edge);border-radius:14px}.cards p{margin:0;color:var(--sub)}
+footer{border-top:1px solid var(--edge);padding:20px 0 40px;color:var(--sub);font-size:13px}
+@media(max-width:640px){.hero{grid-template-columns:1fr}.hero img{width:min(100%,235px)}.film{grid-template-columns:1fr}.film video{margin:auto}.grid{grid-template-columns:repeat(3,1fr);gap:8px}.grid img{border-radius:7px}figcaption{font-size:12px}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><nav class="wrap"><a href="/games">Arcane Forge Games</a><a href="#footage">Watch gameplay</a></nav></header>
+<main class="wrap">
+<div class="hero">
+<div><div class="eyebrow">A pocket ceramics studio</div><h1>Kiln &amp; Color</h1><p>Lower clay into a glaze bath, lift it at the guide, and fire a shelf of handmade pieces.</p><a class="cta" href="./index.html">Play Kiln &amp; Color</a></div>
+<img src="./gallery/opening.webp" width="390" height="844" alt="The Mint Cup commission in the game, with the clay cup hanging above the sea-glass glaze bath.">
+</div>
+<section id="footage">
+<h2>From first dip to finished shelf</h2>
+<div class="film">
+<div><p>This recorded playtest reworks an early dip, fires the Mint Cup, and tests both glaze orders on the Dusk Tumbler. It finishes the shelf and starts a new commission in the remix.</p><a href="./gallery/playtest.mp4">Open the 27-second gameplay video</a></div>
+<video controls playsinline preload="metadata" poster="./gallery/opening.webp" aria-label="Gameplay recording from the portrait touch playtest"><source src="./gallery/playtest.mp4" type="video/mp4"></video>
+</div>
+<div class="grid">
+<figure><img loading="lazy" src="./gallery/dip.webp" width="390" height="844" alt="A clay tumbler lowering toward honey-colored glaze while the dip control is held."><figcaption>Time the glaze edge</figcaption></figure>
+<figure><img loading="lazy" src="./gallery/layers.webp" width="390" height="844" alt="Two tumbler finishes compared side by side with amber over indigo."><figcaption>Layer two colors</figcaption></figure>
+<figure><img loading="lazy" src="./gallery/shelf.webp" width="390" height="844" alt="Three finished ceramics displayed on the completed shelf with their grades."><figcaption>Fire the shelf</figcaption></figure>
+</div>
+</section>
+<section>
+<h2>Why the dips work this way</h2>
+<p>The bath line and the target guide give you a release point on the piece itself. When you dip again, the new glaze covers everything below its edge. Start with the deeper color to keep that upper band visible.</p>
+<div class="cards">
+<article><h3><a href="https://abagames.github.io/crisp-game-lib-games/?castn">CAST N</a></h3><p>Holding changes the cast, and releasing commits it. Here the held motion is visible as a vessel lowering into glaze.</p></article>
+<article><h3><a href="https://abagames.github.io/crisp-game-lib-games/?mjamming">M JAMMING</a></h3><p>Its expanding radius shows what a held input will affect. Here the bath surface shows which part of the piece will take on color.</p></article>
+</div>
+</section>
+</main>
+<footer><div class="wrap">Glass and bell recordings by Kenney. Water-drop sound by receptron. Both used under CC0.</div></footer>
+</body>
+</html>

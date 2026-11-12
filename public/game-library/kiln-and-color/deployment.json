@@ -1,0 +1,22 @@
+{
+  "slug": "kiln-and-color",
+  "release": "1.0.0",
+  "engine": "JavaScript Canvas 2D",
+  "files": {
+    "assets/chime.mp3": "1b5e0932eb55f8eb97165f2059aa0216548a00aa2265422e27e30ba3a0c31caf",
+    "assets/click.mp3": "a708346b75a5755ab83d7ee8f4a90df5729725ef7b79af9c5c9038cef9fe39e2",
+    "assets/dip.mp3": "38bc33b18d66c3ee32eb4e4366ea9689de8783b64a4c4ab021e73e937f4574c1",
+    "assets/fire.mp3": "54fe44e82343fae26175bd5fdf188f292470f550efb3cf76acd273bc8fbb4b77",
+    "assets/lift.mp3": "d9ebd46bec8a3b57e8747736aac3ad6adcef4ea55710467ce74e5fc2ef3b6519",
+    "companion.html": "af12d68c0a72855ad19c75b33e3c420422dbf553e343e17f55ef74f0dd1ede29",
+    "gallery/dip.webp": "d172ef6110eb1b8c45cf3d343860e9510dd12d8698ffcc2a9a09d29db099b25a",
+    "gallery/layers.webp": "4beda536e0eaf48906ea0e08fb5a63a8cd3ab34840073ab31b77cdabdb43c6f8",
+    "gallery/opening.webp": "fc9e00bd7a4a9775821e5e5b998cfc54d415d08d663713f5549ab78c47c3dd90",
+    "gallery/playtest.mp4": "d8b22d8bdbc9a29432be6d9604c924a91cdab5d74492c79ee03d0717d551d724",
+    "gallery/shelf.webp": "3fdd12906ac1875d5fdcfedb1a2cb82178b307685073e54a2682f178b4b82094",
+    "icon.png": "3503ec1bf9481212fd4dd7a69d169a941eebd0768cab951462ad89b4e2d7f9f9",
+    "index.html": "913bcbee6037b63c3c104ec29c61eac751cb775b3695110335352ab52ae9277b",
+    "screenshot.png": "07684fb51b04fd6ea915f7f9a40050b41a6ebda868564e40a3878a355dcbb2eb",
+    "studio.js": "1c1b43ffcddd4e5e57a888b399eabe0578b465a936673a1b6d30d30b621299b1"
+  }
+}
